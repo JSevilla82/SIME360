@@ -3,78 +3,69 @@ from models.modelos import Licencia, Usuario, db
 from sqlalchemy.exc import IntegrityError
 from backend.graph_data import (
     obtener_licencias_disponibles,
-    obtener_usuarios_miembros as graph_usuarios_miembros,
-    obtener_usuarios_con_actividad as graph_usuarios_actividad,
+    FRTrsYlAtUUhnxhFvXKWTXNPgOotmOBc as graph_usuarios_miembros,
+    FYxtFitKsOZTpAqzqJYLgvgVhGsQRYON as graph_usuarios_actividad,
     obtener_sitios_sharepoint,
     obtener_usuario_por_correo,
     obtener_informe_actividad,
 )
-
-# ----------------- OBTENCIÓN Y PROCESAMIENTO DE DATOS DE GRAPH -----------------
-
-def cargar_datos_identificador_licencias():
-    licencias = Licencia.query.all()
+def RByVXQDkQWUtFjlzxAecnPStfytAoRpi():
+    gZKIVkJsVZzWCZonBKaCQjGwIgFRUZoW = Licencia.query.all()
     return {
-        lic.LicenciaSkuId: {
-            "NombreLicencia": lic.NombreLicencia,
-            "LicenciaPrincipal": int(lic.LicenciaPrincipal),
-            "LicenciaDePago": int(lic.LicenciaDePago),
+        IPohplcztfcTlFhPZBaDVBYzSDsNZXGt.LicenciaSkuId: {
+            "NombreLicencia": IPohplcztfcTlFhPZBaDVBYzSDsNZXGt.NombreLicencia,
+            "LicenciaPrincipal": int(IPohplcztfcTlFhPZBaDVBYzSDsNZXGt.LicenciaPrincipal),
+            "LicenciaDePago": int(IPohplcztfcTlFhPZBaDVBYzSDsNZXGt.LicenciaDePago),
         }
-        for lic in licencias
+        for IPohplcztfcTlFhPZBaDVBYzSDsNZXGt in gZKIVkJsVZzWCZonBKaCQjGwIgFRUZoW
     }
-
-async def buscar_detalles_licencias():
-    datos_licencias_api = await obtener_licencias_disponibles()
-    if datos_licencias_api and "value" in datos_licencias_api:
+async def hlINDQCfwKIGcXyLBOjvbZGZlTVsdkem():
+    MUBxQaZXmfShHHwdYtvUZBlaElaSMMzn = await obtener_licencias_disponibles()
+    if MUBxQaZXmfShHHwdYtvUZBlaElaSMMzn and "value" in MUBxQaZXmfShHHwdYtvUZBlaElaSMMzn:
         return [
             {
-                "skuPartNumber": lic.get("skuPartNumber", "Sin skuPartNumber"),
-                "skuId": lic.get("skuId"),
+                "skuPartNumber": IPohplcztfcTlFhPZBaDVBYzSDsNZXGt.get("skuPartNumber", "Sin skuPartNumber"),
+                "skuId": IPohplcztfcTlFhPZBaDVBYzSDsNZXGt.get("skuId"),
                 "prepaidUnits": {
-                    "enabled": lic.get("prepaidUnits", {}).get("enabled", 0),
-                    "warning": lic.get("prepaidUnits", {}).get("warning", 0),
+                    "enabled": IPohplcztfcTlFhPZBaDVBYzSDsNZXGt.get("prepaidUnits", {}).get("enabled", 0),
+                    "warning": IPohplcztfcTlFhPZBaDVBYzSDsNZXGt.get("prepaidUnits", {}).get("warning", 0),
                 },
             }
-            for lic in datos_licencias_api["value"]
+            for IPohplcztfcTlFhPZBaDVBYzSDsNZXGt in MUBxQaZXmfShHHwdYtvUZBlaElaSMMzn["value"]
         ]
     return []
-
-async def obtener_usuarios_miembros():
-    datos_usuarios = await graph_usuarios_miembros()
-    return datos_usuarios if datos_usuarios else []
-
-async def obtener_usuarios_con_actividad():
-    datos_usuarios = await graph_usuarios_actividad()
-    return datos_usuarios if datos_usuarios else []
-
-async def procesar_usuario_por_correo(correo: str):
-    datos_usuario = await obtener_usuario_por_correo(correo)
-    resultado = {
-        "userId": datos_usuario.get("id"),
-        "nombreCompleto": datos_usuario.get("displayName"),
-        "correo": datos_usuario.get("mail") or datos_usuario.get("userPrincipalName"),
-        "oficina": datos_usuario.get("officeLocation", "No especificada"),
-        "cargo": datos_usuario.get("jobTitle", "No especificado"),
-        "estadoCuenta": "Activo" if datos_usuario.get("accountEnabled") else "Inactivo",
+async def FRTrsYlAtUUhnxhFvXKWTXNPgOotmOBc():
+    KryvjzatdfSYpJTlwOGGbTULUaFBUtJY = await graph_usuarios_miembros()
+    return KryvjzatdfSYpJTlwOGGbTULUaFBUtJY if KryvjzatdfSYpJTlwOGGbTULUaFBUtJY else []
+async def FYxtFitKsOZTpAqzqJYLgvgVhGsQRYON():
+    KryvjzatdfSYpJTlwOGGbTULUaFBUtJY = await graph_usuarios_actividad()
+    return KryvjzatdfSYpJTlwOGGbTULUaFBUtJY if KryvjzatdfSYpJTlwOGGbTULUaFBUtJY else []
+async def eMoDGEBToAFtxgBFaOVPgFBsOmfEpFGh(krbIlIDgJAWmAPaFFYAdAdDfDfYyWnzm: str):
+    YlWFeNOVmVAPSJimRxrzvHKfOUGEwXMd = await obtener_usuario_por_correo(krbIlIDgJAWmAPaFFYAdAdDfDfYyWnzm)
+    yGrmlRDlOxCLsXiferoclBMkprOdnfmY = {
+        "userId": YlWFeNOVmVAPSJimRxrzvHKfOUGEwXMd.get("id"),
+        "nombreCompleto": YlWFeNOVmVAPSJimRxrzvHKfOUGEwXMd.get("displayName"),
+        "correo": YlWFeNOVmVAPSJimRxrzvHKfOUGEwXMd.get("mail") or YlWFeNOVmVAPSJimRxrzvHKfOUGEwXMd.get("userPrincipalName"),
+        "oficina": YlWFeNOVmVAPSJimRxrzvHKfOUGEwXMd.get("officeLocation", "No especificada"),
+        "cargo": YlWFeNOVmVAPSJimRxrzvHKfOUGEwXMd.get("jobTitle", "No especificado"),
+        "estadoCuenta": "Activo" if YlWFeNOVmVAPSJimRxrzvHKfOUGEwXMd.get("accountEnabled") else "Inactivo",
         "jefe": None
     }
-    jefe = datos_usuario.get("manager")
-    if jefe:
-        resultado["jefe"] = {
-            "nombreCompleto": jefe.get("displayName", "Desconocido"),
-            "correo": jefe.get("mail") or jefe.get("userPrincipalName"),
-            "cargo": jefe.get("jobTitle", "No especificado")
+    pbEyvVXJcmCtejYywnrhqFtHXBMDLRoN = YlWFeNOVmVAPSJimRxrzvHKfOUGEwXMd.get("manager")
+    if pbEyvVXJcmCtejYywnrhqFtHXBMDLRoN:
+        yGrmlRDlOxCLsXiferoclBMkprOdnfmY["jefe"] = {
+            "nombreCompleto": pbEyvVXJcmCtejYywnrhqFtHXBMDLRoN.get("displayName", "Desconocido"),
+            "correo": pbEyvVXJcmCtejYywnrhqFtHXBMDLRoN.get("mail") or pbEyvVXJcmCtejYywnrhqFtHXBMDLRoN.get("userPrincipalName"),
+            "cargo": pbEyvVXJcmCtejYywnrhqFtHXBMDLRoN.get("jobTitle", "No especificado")
         }
-    return resultado
-
-def convertir_bytes_a_gb_str(valor):
+    return yGrmlRDlOxCLsXiferoclBMkprOdnfmY
+def FaLIRFbSWRoOpUbsdNxLJPKkFbKvGNNM(valor):
     try:
         return f"{round(int(valor) / (1024 ** 3), 2)} GB"
     except (TypeError, ValueError):
         return "0 GB"
-        
-async def obtener_informes_consolidados(tipo: str, dias: int):
-    servicios_map = {
+async def KfSYZZvKzFuOxaGWaUfBpjslQIZxeFTN(tipo: str, dias: int):
+    CHZSIzaOQPwSwmekVMXtsElRvzJswoOJ = {
         "outlook": ["outlook_actividad", "buzon_uso"],
         "onedrive": ["onedrive_actividad", "onedrive_uso"],
         "sharepoint": ["sharepoint_uso"],
@@ -83,254 +74,230 @@ async def obtener_informes_consolidados(tipo: str, dias: int):
             "sharepoint_actividad", "sharepoint_uso", "teams_actividad", "teams_dispositivos"
         ]
     }
-    servicios = servicios_map.get(tipo, [tipo] if tipo in servicios_map["todos"] else [])
-
-    if not servicios:
+    GLJibTTSWvWfARmnLHOsLFdeQxasLhMZ = CHZSIzaOQPwSwmekVMXtsElRvzJswoOJ.get(tipo, [tipo] if tipo in CHZSIzaOQPwSwmekVMXtsElRvzJswoOJ["todos"] else [])
+    if not GLJibTTSWvWfARmnLHOsLFdeQxasLhMZ:
         return {"error": "Tipo de informe no válido", "datos": None}
-        
-    tareas = [obtener_informe_actividad(servicio, dias) for servicio in servicios]
-    resultados = await asyncio.gather(*tareas, return_exceptions=True)
-    
-    informes_consolidados = {}
-
+    iHwMNFSjKvgyiEIWZMJoHrkZpKuNqqjz = [obtener_informe_actividad(BPLpfAcjoluxHFUrPbDIuxMzeyauKXZu, dias) for BPLpfAcjoluxHFUrPbDIuxMzeyauKXZu in GLJibTTSWvWfARmnLHOsLFdeQxasLhMZ]
+    GsmdAiudjhqwBuUrEutGRPuSoJHgzYwO = await asyncio.gather(*iHwMNFSjKvgyiEIWZMJoHrkZpKuNqqjz, return_exceptions=True)
+    NinuaiRVRRKrHYAysgOpYbRIAqrSpWXp = {}
     if tipo == "onedrive":
-        actividad, uso = resultados
-        if isinstance(actividad, Exception) or isinstance(uso, Exception):
-            return {"error": str(actividad if isinstance(actividad, Exception) else uso), "datos": None}
-        datos = []
-        for item_actividad in actividad:
-            correo = item_actividad.get("User Principal Name")
-            item_uso = next((u for u in uso if u.get("Owner Principal Name") == correo), {})
-            clave_fecha = next((k for k in item_actividad if "Report Refresh Date" in k), None)
-            fecha_informe = item_actividad.get(clave_fecha, "Fecha no disponible")
-            datos.append({
-                "Usuario Principal (User Principal Name)": correo or "N/A",
-                "Archivos visualizados o editados (Viewed Or Edited File Count)": item_actividad.get("Viewed Or Edited File Count", "0"),
-                "Archivos sincronizados (Synced File Count)": item_actividad.get("Synced File Count", "0"),
-                "Compartidos internamente (Shared Internally File Count)": item_actividad.get("Shared Internally File Count", "0"),
-                "Compartidos externamente (Shared Externally File Count)": item_actividad.get("Shared Externally File Count", "0"),
-                "Cantidad de archivos (File Count)": item_uso.get("File Count", "0"),
-                "Archivos activos (Active File Count)": item_uso.get("Active File Count", "0"),
-                "Última actividad (Last Activity Date)": item_uso.get("Last Activity Date") or item_actividad.get("Last Activity Date", "Sin actividad"),
-                "Almacenamiento usado (Storage Used)": convertir_bytes_a_gb_str(item_uso.get("Storage Used (Byte)")),
-                "Almacenamiento asignado (Storage Allocated)": convertir_bytes_a_gb_str(item_uso.get("Storage Allocated (Byte)")),
-                "Fecha de Informe (Report Refresh Date)": fecha_informe,
+        mLZctpICCNXbZIWSmVGFWanheqGElcsz, ShFmBYdmUvIZAJHkeJEukFccUrNIWEEF = GsmdAiudjhqwBuUrEutGRPuSoJHgzYwO
+        if isinstance(mLZctpICCNXbZIWSmVGFWanheqGElcsz, Exception) or isinstance(ShFmBYdmUvIZAJHkeJEukFccUrNIWEEF, Exception):
+            return {"error": str(mLZctpICCNXbZIWSmVGFWanheqGElcsz if isinstance(mLZctpICCNXbZIWSmVGFWanheqGElcsz, Exception) else ShFmBYdmUvIZAJHkeJEukFccUrNIWEEF), "datos": None}
+        FgdhypnZBIdtiIwScYRDrgoXSqXOqxQh = []
+        for OqEgJuNnFfVRvPkRCSLnhMwlEonnLBTX in mLZctpICCNXbZIWSmVGFWanheqGElcsz:
+            krbIlIDgJAWmAPaFFYAdAdDfDfYyWnzm = OqEgJuNnFfVRvPkRCSLnhMwlEonnLBTX.get("User Principal Name")
+            nEnMhgnLkUjIzSDvNfeIHEUgWHcKBRQP = next((u for u in ShFmBYdmUvIZAJHkeJEukFccUrNIWEEF if u.get("Owner Principal Name") == krbIlIDgJAWmAPaFFYAdAdDfDfYyWnzm), {})
+            xVaHXOEpGuTMJfYuWzoYkJeajBXsKUiQ = next((lkTZifTJNIuTFbldSEPHIqNcIdhyvBsa for lkTZifTJNIuTFbldSEPHIqNcIdhyvBsa in OqEgJuNnFfVRvPkRCSLnhMwlEonnLBTX if "Report Refresh Date" in lkTZifTJNIuTFbldSEPHIqNcIdhyvBsa), None)
+            RMbBQrwLNbyQavPrRUhIQFBSdDyiJITb = OqEgJuNnFfVRvPkRCSLnhMwlEonnLBTX.get(xVaHXOEpGuTMJfYuWzoYkJeajBXsKUiQ, "Fecha no disponible")
+            FgdhypnZBIdtiIwScYRDrgoXSqXOqxQh.append({
+                "Usuario Principal (User Principal Name)": krbIlIDgJAWmAPaFFYAdAdDfDfYyWnzm or "N/A",
+                "Archivos visualizados o editados (Viewed Or Edited File Count)": OqEgJuNnFfVRvPkRCSLnhMwlEonnLBTX.get("Viewed Or Edited File Count", "0"),
+                "Archivos sincronizados (Synced File Count)": OqEgJuNnFfVRvPkRCSLnhMwlEonnLBTX.get("Synced File Count", "0"),
+                "Compartidos internamente (Shared Internally File Count)": OqEgJuNnFfVRvPkRCSLnhMwlEonnLBTX.get("Shared Internally File Count", "0"),
+                "Compartidos externamente (Shared Externally File Count)": OqEgJuNnFfVRvPkRCSLnhMwlEonnLBTX.get("Shared Externally File Count", "0"),
+                "Cantidad de archivos (File Count)": nEnMhgnLkUjIzSDvNfeIHEUgWHcKBRQP.get("File Count", "0"),
+                "Archivos activos (Active File Count)": nEnMhgnLkUjIzSDvNfeIHEUgWHcKBRQP.get("Active File Count", "0"),
+                "Última actividad (Last Activity Date)": nEnMhgnLkUjIzSDvNfeIHEUgWHcKBRQP.get("Last Activity Date") or OqEgJuNnFfVRvPkRCSLnhMwlEonnLBTX.get("Last Activity Date", "Sin actividad"),
+                "Almacenamiento usado (Storage Used)": FaLIRFbSWRoOpUbsdNxLJPKkFbKvGNNM(nEnMhgnLkUjIzSDvNfeIHEUgWHcKBRQP.get("Storage Used (Byte)")),
+                "Almacenamiento asignado (Storage Allocated)": FaLIRFbSWRoOpUbsdNxLJPKkFbKvGNNM(nEnMhgnLkUjIzSDvNfeIHEUgWHcKBRQP.get("Storage Allocated (Byte)")),
+                "Fecha de Informe (Report Refresh Date)": RMbBQrwLNbyQavPrRUhIQFBSdDyiJITb,
             })
-        return {"error": None, "datos": datos}
-
+        return {"error": None, "datos": FgdhypnZBIdtiIwScYRDrgoXSqXOqxQh}
     if tipo == "outlook":
-        actividad, buzon = resultados
-        if isinstance(actividad, Exception) or isinstance(buzon, Exception):
-            return {"error": str(actividad if isinstance(actividad, Exception) else buzon), "datos": None}
-        datos = []
-        for act in actividad:
-            correo = act.get("User Principal Name")
-            uso = next((u for u in buzon if u.get("User Principal Name") == correo), {})
-            clave_fecha = next((k for k in act if "Report Refresh Date" in k), None)
-            fecha_informe = act.get(clave_fecha, "Fecha no disponible")
-            datos.append({
-                "Usuario Principal (User Principal Name)": correo,
-                "Nombre para mostrar (Display Name)": act.get("Display Name"),
-                "Productos asignados (Assigned Products)": act.get("Assigned Products"),
-                "Última actividad (Last Activity Date)": act.get("Last Activity Date") or uso.get("Last Activity Date") or "Sin actividad",
-                "Correos recibidos (Receive Count)": act.get("Receive Count"),
-                "Correos enviados (Send Count)": act.get("Send Count"),
-                "Cantidad de elementos (Item Count)": uso.get("Item Count"),
-                "Almacenamiento usado (Storage Used)": convertir_bytes_a_gb_str(uso.get("Storage Used (Byte)")),
-                "Cuota para enviar prohibido (Prohibit Send Quota)": convertir_bytes_a_gb_str(uso.get("Prohibit Send Quota (Byte)")),
-                "¿Tiene archivo en línea? (Has Archive)": uso.get("Has Archive"),
-                "Fecha de Informe (Report Refresh Date)": fecha_informe,
+        mLZctpICCNXbZIWSmVGFWanheqGElcsz, bEkbtmUlXxyLIFUgxZeyJVFdDdLuWOIk = GsmdAiudjhqwBuUrEutGRPuSoJHgzYwO
+        if isinstance(mLZctpICCNXbZIWSmVGFWanheqGElcsz, Exception) or isinstance(bEkbtmUlXxyLIFUgxZeyJVFdDdLuWOIk, Exception):
+            return {"error": str(mLZctpICCNXbZIWSmVGFWanheqGElcsz if isinstance(mLZctpICCNXbZIWSmVGFWanheqGElcsz, Exception) else bEkbtmUlXxyLIFUgxZeyJVFdDdLuWOIk), "datos": None}
+        FgdhypnZBIdtiIwScYRDrgoXSqXOqxQh = []
+        for hBsvUFSIcWsvpQuWTTMGZvVwCqLQhoQm in mLZctpICCNXbZIWSmVGFWanheqGElcsz:
+            krbIlIDgJAWmAPaFFYAdAdDfDfYyWnzm = hBsvUFSIcWsvpQuWTTMGZvVwCqLQhoQm.get("User Principal Name")
+            ShFmBYdmUvIZAJHkeJEukFccUrNIWEEF = next((u for u in bEkbtmUlXxyLIFUgxZeyJVFdDdLuWOIk if u.get("User Principal Name") == krbIlIDgJAWmAPaFFYAdAdDfDfYyWnzm), {})
+            xVaHXOEpGuTMJfYuWzoYkJeajBXsKUiQ = next((lkTZifTJNIuTFbldSEPHIqNcIdhyvBsa for lkTZifTJNIuTFbldSEPHIqNcIdhyvBsa in hBsvUFSIcWsvpQuWTTMGZvVwCqLQhoQm if "Report Refresh Date" in lkTZifTJNIuTFbldSEPHIqNcIdhyvBsa), None)
+            RMbBQrwLNbyQavPrRUhIQFBSdDyiJITb = hBsvUFSIcWsvpQuWTTMGZvVwCqLQhoQm.get(xVaHXOEpGuTMJfYuWzoYkJeajBXsKUiQ, "Fecha no disponible")
+            FgdhypnZBIdtiIwScYRDrgoXSqXOqxQh.append({
+                "Usuario Principal (User Principal Name)": krbIlIDgJAWmAPaFFYAdAdDfDfYyWnzm,
+                "Nombre para mostrar (Display Name)": hBsvUFSIcWsvpQuWTTMGZvVwCqLQhoQm.get("Display Name"),
+                "Productos asignados (Assigned Products)": hBsvUFSIcWsvpQuWTTMGZvVwCqLQhoQm.get("Assigned Products"),
+                "Última actividad (Last Activity Date)": hBsvUFSIcWsvpQuWTTMGZvVwCqLQhoQm.get("Last Activity Date") or ShFmBYdmUvIZAJHkeJEukFccUrNIWEEF.get("Last Activity Date") or "Sin actividad",
+                "Correos recibidos (Receive Count)": hBsvUFSIcWsvpQuWTTMGZvVwCqLQhoQm.get("Receive Count"),
+                "Correos enviados (Send Count)": hBsvUFSIcWsvpQuWTTMGZvVwCqLQhoQm.get("Send Count"),
+                "Cantidad de elementos (Item Count)": ShFmBYdmUvIZAJHkeJEukFccUrNIWEEF.get("Item Count"),
+                "Almacenamiento usado (Storage Used)": FaLIRFbSWRoOpUbsdNxLJPKkFbKvGNNM(ShFmBYdmUvIZAJHkeJEukFccUrNIWEEF.get("Storage Used (Byte)")),
+                "Cuota para enviar prohibido (Prohibit Send Quota)": FaLIRFbSWRoOpUbsdNxLJPKkFbKvGNNM(ShFmBYdmUvIZAJHkeJEukFccUrNIWEEF.get("Prohibit Send Quota (Byte)")),
+                "¿Tiene archivo en línea? (Has Archive)": ShFmBYdmUvIZAJHkeJEukFccUrNIWEEF.get("Has Archive"),
+                "Fecha de Informe (Report Refresh Date)": RMbBQrwLNbyQavPrRUhIQFBSdDyiJITb,
             })
-        return {"error": None, "datos": datos}
-        
-    for servicio, resultado in zip(servicios, resultados):
-        if isinstance(resultado, Exception):
-            informes_consolidados[servicio] = {"error": str(resultado), "datos": None}
-        elif servicio == "teams_actividad":
-            datos = []
-            for usuario in resultado:
-                clave_fecha = next((k for k in usuario if "Report Refresh Date" in k), None)
-                fecha_informe = usuario.get(clave_fecha, "Fecha no disponible")
-                datos.append({
-                    "Usuario (User Principal Name)": usuario.get("User Principal Name", "N/A"),
-                    "Llamadas Realizadas (Call Count)": usuario.get("Call Count", "0"),
-                    "Reuniones (Meeting Count)": usuario.get("Meeting Count", "0"),
-                    "Mensajes en Chats Privados (Private Chat Message Count)": usuario.get("Private Chat Message Count", "0"),
-                    "Última actividad Teams (Last Activity Date)": usuario.get("Last Activity Date", "Sin actividad"),
-                    "Fecha de Informe (Report Refresh Date)": fecha_informe,
+        return {"error": None, "datos": FgdhypnZBIdtiIwScYRDrgoXSqXOqxQh}
+    for BPLpfAcjoluxHFUrPbDIuxMzeyauKXZu, yGrmlRDlOxCLsXiferoclBMkprOdnfmY in zip(GLJibTTSWvWfARmnLHOsLFdeQxasLhMZ, GsmdAiudjhqwBuUrEutGRPuSoJHgzYwO):
+        if isinstance(yGrmlRDlOxCLsXiferoclBMkprOdnfmY, Exception):
+            NinuaiRVRRKrHYAysgOpYbRIAqrSpWXp[BPLpfAcjoluxHFUrPbDIuxMzeyauKXZu] = {"error": str(yGrmlRDlOxCLsXiferoclBMkprOdnfmY), "datos": None}
+        elif BPLpfAcjoluxHFUrPbDIuxMzeyauKXZu == "teams_actividad":
+            FgdhypnZBIdtiIwScYRDrgoXSqXOqxQh = []
+            for djsjlXpfJjIJBvYSvLDfHeJIstoRKEso in yGrmlRDlOxCLsXiferoclBMkprOdnfmY:
+                xVaHXOEpGuTMJfYuWzoYkJeajBXsKUiQ = next((lkTZifTJNIuTFbldSEPHIqNcIdhyvBsa for lkTZifTJNIuTFbldSEPHIqNcIdhyvBsa in djsjlXpfJjIJBvYSvLDfHeJIstoRKEso if "Report Refresh Date" in lkTZifTJNIuTFbldSEPHIqNcIdhyvBsa), None)
+                RMbBQrwLNbyQavPrRUhIQFBSdDyiJITb = djsjlXpfJjIJBvYSvLDfHeJIstoRKEso.get(xVaHXOEpGuTMJfYuWzoYkJeajBXsKUiQ, "Fecha no disponible")
+                FgdhypnZBIdtiIwScYRDrgoXSqXOqxQh.append({
+                    "Usuario (User Principal Name)": djsjlXpfJjIJBvYSvLDfHeJIstoRKEso.get("User Principal Name", "N/A"),
+                    "Llamadas Realizadas (Call Count)": djsjlXpfJjIJBvYSvLDfHeJIstoRKEso.get("Call Count", "0"),
+                    "Reuniones (Meeting Count)": djsjlXpfJjIJBvYSvLDfHeJIstoRKEso.get("Meeting Count", "0"),
+                    "Mensajes en Chats Privados (Private Chat Message Count)": djsjlXpfJjIJBvYSvLDfHeJIstoRKEso.get("Private Chat Message Count", "0"),
+                    "Última actividad Teams (Last Activity Date)": djsjlXpfJjIJBvYSvLDfHeJIstoRKEso.get("Last Activity Date", "Sin actividad"),
+                    "Fecha de Informe (Report Refresh Date)": RMbBQrwLNbyQavPrRUhIQFBSdDyiJITb,
                 })
-            informes_consolidados[servicio] = {"error": None, "datos": datos}
-        elif servicio == "sharepoint_uso":
-            datos = []
-            for item in resultado:
-                clave_fecha = next((k for k in item if "Report Refresh Date" in k), None)
-                fecha_informe = item.get(clave_fecha, "N/A")
-                datos.append({
-                    "Fecha de actualización del reporte": fecha_informe,
-                    "ID del sitio (Site Id)": item.get("Site Id", "N/A"),
-                    "URL del sitio (Site URL)": item.get("Site URL", "N/A"),
-                    "Nombre del propietario (Owner Display Name)": item.get("Owner Display Name", "N/A"),
-                    "Correo del propietario (Owner Principal Name)": item.get("Owner Principal Name", "N/A"),
-                    "¿Eliminado? (Is Deleted)": ("Sí" if item.get("Is Deleted") == "True" else "No"),
-                    "Última actividad (Last Activity Date)": item.get("Last Activity Date", "Sin actividad"),
-                    "Cantidad de archivos (File Count)": item.get("File Count", "0"),
-                    "Archivos activos (Active File Count)": item.get("Active File Count", "0"),
-                    "Cantidad de visitas (Page View Count)": item.get("Page View Count", "0"),
-                    "Páginas visitadas (Visited Page Count)": item.get("Visited Page Count", "0"),
-                    "Almacenamiento usado (Storage Used GB)": convertir_bytes_a_gb_str(item.get("Storage Used (Byte)")),
-                    "Almacenamiento asignado (Storage Allocated GB)": convertir_bytes_a_gb_str(item.get("Storage Allocated (Byte)")),
-                    "Plantilla raíz (Root Web Template)": item.get("Root Web Template", "N/A"),
-                    "Periodo del reporte (días)": item.get("Report Period", "N/A"),
+            NinuaiRVRRKrHYAysgOpYbRIAqrSpWXp[BPLpfAcjoluxHFUrPbDIuxMzeyauKXZu] = {"error": None, "datos": FgdhypnZBIdtiIwScYRDrgoXSqXOqxQh}
+        elif BPLpfAcjoluxHFUrPbDIuxMzeyauKXZu == "sharepoint_uso":
+            FgdhypnZBIdtiIwScYRDrgoXSqXOqxQh = []
+            for lKxuAfBBYtEEHCDhKSuSoeKPcCDHhYzP in yGrmlRDlOxCLsXiferoclBMkprOdnfmY:
+                xVaHXOEpGuTMJfYuWzoYkJeajBXsKUiQ = next((lkTZifTJNIuTFbldSEPHIqNcIdhyvBsa for lkTZifTJNIuTFbldSEPHIqNcIdhyvBsa in lKxuAfBBYtEEHCDhKSuSoeKPcCDHhYzP if "Report Refresh Date" in lkTZifTJNIuTFbldSEPHIqNcIdhyvBsa), None)
+                RMbBQrwLNbyQavPrRUhIQFBSdDyiJITb = lKxuAfBBYtEEHCDhKSuSoeKPcCDHhYzP.get(xVaHXOEpGuTMJfYuWzoYkJeajBXsKUiQ, "N/A")
+                FgdhypnZBIdtiIwScYRDrgoXSqXOqxQh.append({
+                    "Fecha de actualización del reporte": RMbBQrwLNbyQavPrRUhIQFBSdDyiJITb,
+                    "ID del sitio (Site Id)": lKxuAfBBYtEEHCDhKSuSoeKPcCDHhYzP.get("Site Id", "N/A"),
+                    "URL del sitio (Site URL)": lKxuAfBBYtEEHCDhKSuSoeKPcCDHhYzP.get("Site URL", "N/A"),
+                    "Nombre del propietario (Owner Display Name)": lKxuAfBBYtEEHCDhKSuSoeKPcCDHhYzP.get("Owner Display Name", "N/A"),
+                    "Correo del propietario (Owner Principal Name)": lKxuAfBBYtEEHCDhKSuSoeKPcCDHhYzP.get("Owner Principal Name", "N/A"),
+                    "¿Eliminado? (Is Deleted)": ("Sí" if lKxuAfBBYtEEHCDhKSuSoeKPcCDHhYzP.get("Is Deleted") == "True" else "No"),
+                    "Última actividad (Last Activity Date)": lKxuAfBBYtEEHCDhKSuSoeKPcCDHhYzP.get("Last Activity Date", "Sin actividad"),
+                    "Cantidad de archivos (File Count)": lKxuAfBBYtEEHCDhKSuSoeKPcCDHhYzP.get("File Count", "0"),
+                    "Archivos activos (Active File Count)": lKxuAfBBYtEEHCDhKSuSoeKPcCDHhYzP.get("Active File Count", "0"),
+                    "Cantidad de visitas (Page View Count)": lKxuAfBBYtEEHCDhKSuSoeKPcCDHhYzP.get("Page View Count", "0"),
+                    "Páginas visitadas (Visited Page Count)": lKxuAfBBYtEEHCDhKSuSoeKPcCDHhYzP.get("Visited Page Count", "0"),
+                    "Almacenamiento usado (Storage Used GB)": FaLIRFbSWRoOpUbsdNxLJPKkFbKvGNNM(lKxuAfBBYtEEHCDhKSuSoeKPcCDHhYzP.get("Storage Used (Byte)")),
+                    "Almacenamiento asignado (Storage Allocated GB)": FaLIRFbSWRoOpUbsdNxLJPKkFbKvGNNM(lKxuAfBBYtEEHCDhKSuSoeKPcCDHhYzP.get("Storage Allocated (Byte)")),
+                    "Plantilla raíz (Root Web Template)": lKxuAfBBYtEEHCDhKSuSoeKPcCDHhYzP.get("Root Web Template", "N/A"),
+                    "Periodo del reporte (días)": lKxuAfBBYtEEHCDhKSuSoeKPcCDHhYzP.get("Report Period", "N/A"),
                 })
-            informes_consolidados[servicio] = {"error": None, "datos": datos}
-        elif servicio == "sharepoint_actividad":
-            datos = []
-            for usuario in resultado:
-                clave_fecha = next((k for k in usuario if "Report Refresh Date" in k), None)
-                fecha_informe = usuario.get(clave_fecha, "Fecha no disponible")
-                datos.append({
-                    "Nombre de Usuario (User Principal Name)": usuario.get("User Principal Name", "N/A"),
-                    "Última Actividad (Last Activity Date)": usuario.get("Last Activity Date", "Sin actividad"),
-                    "Archivos Vistos o Editados (Viewed Or Edited File Count)": usuario.get("Viewed Or Edited File Count", "0"),
-                    "Archivos Sincronizados (Synced File Count)": usuario.get("Synced File Count", "0"),
-                    "Archivos Compartidos Internamente (Shared Internally File Count)": usuario.get("Shared Internally File Count", "0"),
-                    "Archivos Compartidos Externamente (Shared Externally File Count)": usuario.get("Shared Externally File Count", "0"),
-                    "Páginas Visitadas (Visited Page Count)": usuario.get("Visited Page Count", "0"),
-                    "Periodo del Informe (Report Period)": usuario.get("Report Period", "0"),
-                    "Fecha de Informe (Report Refresh Date)": fecha_informe,
+            NinuaiRVRRKrHYAysgOpYbRIAqrSpWXp[BPLpfAcjoluxHFUrPbDIuxMzeyauKXZu] = {"error": None, "datos": FgdhypnZBIdtiIwScYRDrgoXSqXOqxQh}
+        elif BPLpfAcjoluxHFUrPbDIuxMzeyauKXZu == "sharepoint_actividad":
+            FgdhypnZBIdtiIwScYRDrgoXSqXOqxQh = []
+            for djsjlXpfJjIJBvYSvLDfHeJIstoRKEso in yGrmlRDlOxCLsXiferoclBMkprOdnfmY:
+                xVaHXOEpGuTMJfYuWzoYkJeajBXsKUiQ = next((lkTZifTJNIuTFbldSEPHIqNcIdhyvBsa for lkTZifTJNIuTFbldSEPHIqNcIdhyvBsa in djsjlXpfJjIJBvYSvLDfHeJIstoRKEso if "Report Refresh Date" in lkTZifTJNIuTFbldSEPHIqNcIdhyvBsa), None)
+                RMbBQrwLNbyQavPrRUhIQFBSdDyiJITb = djsjlXpfJjIJBvYSvLDfHeJIstoRKEso.get(xVaHXOEpGuTMJfYuWzoYkJeajBXsKUiQ, "Fecha no disponible")
+                FgdhypnZBIdtiIwScYRDrgoXSqXOqxQh.append({
+                    "Nombre de Usuario (User Principal Name)": djsjlXpfJjIJBvYSvLDfHeJIstoRKEso.get("User Principal Name", "N/A"),
+                    "Última Actividad (Last Activity Date)": djsjlXpfJjIJBvYSvLDfHeJIstoRKEso.get("Last Activity Date", "Sin actividad"),
+                    "Archivos Vistos o Editados (Viewed Or Edited File Count)": djsjlXpfJjIJBvYSvLDfHeJIstoRKEso.get("Viewed Or Edited File Count", "0"),
+                    "Archivos Sincronizados (Synced File Count)": djsjlXpfJjIJBvYSvLDfHeJIstoRKEso.get("Synced File Count", "0"),
+                    "Archivos Compartidos Internamente (Shared Internally File Count)": djsjlXpfJjIJBvYSvLDfHeJIstoRKEso.get("Shared Internally File Count", "0"),
+                    "Archivos Compartidos Externamente (Shared Externally File Count)": djsjlXpfJjIJBvYSvLDfHeJIstoRKEso.get("Shared Externally File Count", "0"),
+                    "Páginas Visitadas (Visited Page Count)": djsjlXpfJjIJBvYSvLDfHeJIstoRKEso.get("Visited Page Count", "0"),
+                    "Periodo del Informe (Report Period)": djsjlXpfJjIJBvYSvLDfHeJIstoRKEso.get("Report Period", "0"),
+                    "Fecha de Informe (Report Refresh Date)": RMbBQrwLNbyQavPrRUhIQFBSdDyiJITb,
                 })
-            informes_consolidados[servicio] = {"error": None, "datos": datos}
+            NinuaiRVRRKrHYAysgOpYbRIAqrSpWXp[BPLpfAcjoluxHFUrPbDIuxMzeyauKXZu] = {"error": None, "datos": FgdhypnZBIdtiIwScYRDrgoXSqXOqxQh}
         else:
-            informes_consolidados[servicio] = {"error": None, "datos": resultado}
-
-    if len(servicios) == 1:
-        return informes_consolidados[servicios[0]]
+            NinuaiRVRRKrHYAysgOpYbRIAqrSpWXp[BPLpfAcjoluxHFUrPbDIuxMzeyauKXZu] = {"error": None, "datos": yGrmlRDlOxCLsXiferoclBMkprOdnfmY}
+    if len(GLJibTTSWvWfARmnLHOsLFdeQxasLhMZ) == 1:
+        return NinuaiRVRRKrHYAysgOpYbRIAqrSpWXp[GLJibTTSWvWfARmnLHOsLFdeQxasLhMZ[0]]
     else:
-        return informes_consolidados
-
-async def obtener_sitios_sharepoint_procesados():
+        return NinuaiRVRRKrHYAysgOpYbRIAqrSpWXp
+async def niMVyjGwXXGoBOFVETIWFMlLrFwhZCsD():
     try:
-        sitios = await obtener_sitios_sharepoint()
-        datos = []
-        for item in sitios:
-            partes_id = item.get("id", "").split(",")
-            site_id = partes_id[1] if len(partes_id) >= 2 else "N/A"
-            datos.append({
-                "Fecha de creación": item.get("createdDateTime", "N/A"),
-                "ID del sitio (Site Id)": site_id,
-                "URL del sitio (Site URL)": item.get("webUrl", "N/A"),
-                "Nombre del sitio": item.get("displayName", "N/A"),
+        TnaZVUzPTdzELnEdLgsGdSsdvvhgLdcm = await obtener_sitios_sharepoint()
+        FgdhypnZBIdtiIwScYRDrgoXSqXOqxQh = []
+        for lKxuAfBBYtEEHCDhKSuSoeKPcCDHhYzP in TnaZVUzPTdzELnEdLgsGdSsdvvhgLdcm:
+            pfVQRWmSvKPziGtQjHNVuvfybByoursW = lKxuAfBBYtEEHCDhKSuSoeKPcCDHhYzP.get("id", "").split(",")
+            LKeyJtvzzbdVqIqVmcBKfPImwqamnVic = pfVQRWmSvKPziGtQjHNVuvfybByoursW[1] if len(pfVQRWmSvKPziGtQjHNVuvfybByoursW) >= 2 else "N/A"
+            FgdhypnZBIdtiIwScYRDrgoXSqXOqxQh.append({
+                "Fecha de creación": lKxuAfBBYtEEHCDhKSuSoeKPcCDHhYzP.get("createdDateTime", "N/A"),
+                "ID del sitio (Site Id)": LKeyJtvzzbdVqIqVmcBKfPImwqamnVic,
+                "URL del sitio (Site URL)": lKxuAfBBYtEEHCDhKSuSoeKPcCDHhYzP.get("webUrl", "N/A"),
+                "Nombre del sitio": lKxuAfBBYtEEHCDhKSuSoeKPcCDHhYzP.get("displayName", "N/A"),
             })
-        return {"error": None, "datos": datos}
-    except Exception as e:
-        return {"error": str(e), "datos": None}
-
-# ----------------- LÓGICA DE NEGOCIO - GESTIÓN DE LICENCIAS (CRUD) -----------------
-def get_all_licencias():
+        return {"error": None, "datos": FgdhypnZBIdtiIwScYRDrgoXSqXOqxQh}
+    except Exception as NiGMXAsTZVAkzQWclWCJsjvUEGZSFocy:
+        return {"error": str(NiGMXAsTZVAkzQWclWCJsjvUEGZSFocy), "datos": None}
+def XVxKPGFKSymGlhWnUUHTLqUnhTXRoAAF():
     try:
-        licencias = Licencia.query.order_by(Licencia.LicenciaPrincipal.desc(), Licencia.NombreLicencia.asc()).all()
-        licencias_list = [{"id": lic.id, "LicenciaSkuId": lic.LicenciaSkuId, "NombreLicencia": lic.NombreLicencia, "LicenciaPrincipal": lic.LicenciaPrincipal, "LicenciaDePago": lic.LicenciaDePago} for lic in licencias]
-        return {"licencias": licencias_list, "status": 200}
-    except Exception as e:
-        return {"error": str(e), "status": 500}
-
-def create_new_licencia(data):
+        gZKIVkJsVZzWCZonBKaCQjGwIgFRUZoW = Licencia.query.order_by(Licencia.LicenciaPrincipal.desc(), Licencia.NombreLicencia.asc()).all()
+        vmguZQqjpjnazXuvHhwIwuUMNhmjRzMD = [{"id": IPohplcztfcTlFhPZBaDVBYzSDsNZXGt.id, "LicenciaSkuId": IPohplcztfcTlFhPZBaDVBYzSDsNZXGt.LicenciaSkuId, "NombreLicencia": IPohplcztfcTlFhPZBaDVBYzSDsNZXGt.NombreLicencia, "LicenciaPrincipal": IPohplcztfcTlFhPZBaDVBYzSDsNZXGt.LicenciaPrincipal, "LicenciaDePago": IPohplcztfcTlFhPZBaDVBYzSDsNZXGt.LicenciaDePago} for IPohplcztfcTlFhPZBaDVBYzSDsNZXGt in gZKIVkJsVZzWCZonBKaCQjGwIgFRUZoW]
+        return {"licencias": vmguZQqjpjnazXuvHhwIwuUMNhmjRzMD, "status": 200}
+    except Exception as NiGMXAsTZVAkzQWclWCJsjvUEGZSFocy:
+        return {"error": str(NiGMXAsTZVAkzQWclWCJsjvUEGZSFocy), "status": 500}
+def kwtcdTJOrrqPnXndBlboJiEYvSMBAHRH(data):
     try:
         if not data.get("LicenciaSkuId"): return {"error": "El SKU ID es requerido", "status": 400}
         if not data.get("NombreLicencia"): return {"error": "El nombre comercial es requerido", "status": 400}
         if data.get("LicenciaPrincipal") and not data.get("LicenciaDePago"): return {"error": "Las licencias principales deben ser de pago", "status": 400}
         if Licencia.query.filter_by(LicenciaSkuId=data.get("LicenciaSkuId")).first(): return {"error": "La licencia ya existe", "status": 409}
-
-        nueva_licencia = Licencia(LicenciaSkuId=data["LicenciaSkuId"], NombreLicencia=data["NombreLicencia"], LicenciaPrincipal=bool(data.get("LicenciaPrincipal", False)), LicenciaDePago=bool(data.get("LicenciaDePago", False)))
-        db.session.add(nueva_licencia)
+        nVfWXLexLELLBKymzBuPQACweWubdoGg = Licencia(LicenciaSkuId=data["LicenciaSkuId"], NombreLicencia=data["NombreLicencia"], LicenciaPrincipal=bool(data.get("LicenciaPrincipal", False)), LicenciaDePago=bool(data.get("LicenciaDePago", False)))
+        db.session.add(nVfWXLexLELLBKymzBuPQACweWubdoGg)
         db.session.commit()
-        return {"message": "Licencia creada", "status": 201, "licencia": {"id": nueva_licencia.id, "LicenciaSkuId": nueva_licencia.LicenciaSkuId}}
-    except Exception as e:
+        return {"message": "Licencia creada", "status": 201, "licencia": {"id": nVfWXLexLELLBKymzBuPQACweWubdoGg.id, "LicenciaSkuId": nVfWXLexLELLBKymzBuPQACweWubdoGg.LicenciaSkuId}}
+    except Exception as NiGMXAsTZVAkzQWclWCJsjvUEGZSFocy:
         db.session.rollback()
-        return {"error": str(e), "status": 500}
-
-def update_existing_licencia(licencia_id, data):
+        return {"error": str(NiGMXAsTZVAkzQWclWCJsjvUEGZSFocy), "status": 500}
+def jGBTdbNUvGrcKdBJDpBlebEnUzvrBLUc(licencia_id, data):
     try:
         if not data.get("NombreLicencia"): return {"error": "El nombre comercial es requerido", "status": 400}
         if data.get("LicenciaPrincipal") and not data.get("LicenciaDePago"): return {"error": "Las licencias principales deben ser de pago", "status": 400}
-
-        licencia = Licencia.query.filter_by(LicenciaSkuId=licencia_id).first()
-        if not licencia: return {"error": "Licencia no encontrada", "status": 404}
-
-        licencia.NombreLicencia = data["NombreLicencia"]
-        licencia.LicenciaPrincipal = bool(data.get("LicenciaPrincipal", False))
-        licencia.LicenciaDePago = bool(data.get("LicenciaDePago", False))
+        UyMcHgXMFXvckFNoEcBySePFBGlawNPJ = Licencia.query.filter_by(LicenciaSkuId=licencia_id).first()
+        if not UyMcHgXMFXvckFNoEcBySePFBGlawNPJ: return {"error": "Licencia no encontrada", "status": 404}
+        UyMcHgXMFXvckFNoEcBySePFBGlawNPJ.NombreLicencia = data["NombreLicencia"]
+        UyMcHgXMFXvckFNoEcBySePFBGlawNPJ.LicenciaPrincipal = bool(data.get("LicenciaPrincipal", False))
+        UyMcHgXMFXvckFNoEcBySePFBGlawNPJ.LicenciaDePago = bool(data.get("LicenciaDePago", False))
         db.session.commit()
         return {"message": "Licencia actualizada", "status": 200}
-    except Exception as e:
+    except Exception as NiGMXAsTZVAkzQWclWCJsjvUEGZSFocy:
         db.session.rollback()
-        return {"error": str(e), "status": 500}
-
-def delete_existing_licencia(licencia_id):
+        return {"error": str(NiGMXAsTZVAkzQWclWCJsjvUEGZSFocy), "status": 500}
+def oTaiILpfJnixcKnuFnxOlyYNdqOBlcOU(licencia_id):
     try:
-        licencia = Licencia.query.filter_by(LicenciaSkuId=licencia_id).first()
-        if not licencia: return {"error": "Licencia no encontrada", "status": 404}
-
-        db.session.delete(licencia)
+        UyMcHgXMFXvckFNoEcBySePFBGlawNPJ = Licencia.query.filter_by(LicenciaSkuId=licencia_id).first()
+        if not UyMcHgXMFXvckFNoEcBySePFBGlawNPJ: return {"error": "Licencia no encontrada", "status": 404}
+        db.session.delete(UyMcHgXMFXvckFNoEcBySePFBGlawNPJ)
         db.session.commit()
         return {"message": "Licencia eliminada", "status": 200}
-    except Exception as e:
+    except Exception as NiGMXAsTZVAkzQWclWCJsjvUEGZSFocy:
         db.session.rollback()
-        return {"error": str(e), "status": 500}
-
-# ----------------- LÓGICA DE NEGOCIO - GESTIÓN DE ACCESO A LA APP -----------------
-def authorize_user_access(user_id_sesion, correo_sesion):
+        return {"error": str(NiGMXAsTZVAkzQWclWCJsjvUEGZSFocy), "status": 500}
+def EjdiUwOcnuoUMUEZtwakAsRIcloraMlb(user_id_sesion, correo_sesion):
     if not user_id_sesion or not correo_sesion:
         return {"error": "No hay usuario consultado en sesión", "status": 400}
     try:
-        datos_usuario = asyncio.run(procesar_usuario_por_correo(correo_sesion))
-        if user_id_sesion != datos_usuario.get("userId"):
+        YlWFeNOVmVAPSJimRxrzvHKfOUGEwXMd = asyncio.run(eMoDGEBToAFtxgBFaOVPgFBsOmfEpFGh(correo_sesion))
+        if user_id_sesion != YlWFeNOVmVAPSJimRxrzvHKfOUGEwXMd.get("userId"):
             return {"error": "La identidad del usuario no coincide", "status": 403}
-
-        nuevo_usuario = Usuario(
-            usuario=correo_sesion,
-            nombre_completo=datos_usuario.get("nombreCompleto", "Desconocido"),
-            microsoft_object_id=datos_usuario.get("userId"),
-            auth_type='microsoft',
-            estado="Activo"
+        RIbAFAqUzIXVPEsvYJfnuOGcOAazndKn = Usuario(
+            djsjlXpfJjIJBvYSvLDfHeJIstoRKEso=correo_sesion,
+            hCbGIyvgOLPeRWbPIhrHiKtiDdzPDWzJ=YlWFeNOVmVAPSJimRxrzvHKfOUGEwXMd.get("nombreCompleto", "Desconocido"),
+            oUjVFTywbfHKQxPCsTmZFYNeUKHLPWaH=YlWFeNOVmVAPSJimRxrzvHKfOUGEwXMd.get("userId"),
+            okROKnvueOqonidfHalWVlZvQiPzYXgc='microsoft',
+            xckdHCWaktmxrtTXBsjbigvqvWSvUDBW="Activo"
         )
-        db.session.add(nuevo_usuario)
+        db.session.add(RIbAFAqUzIXVPEsvYJfnuOGcOAazndKn)
         db.session.commit()
         return {"success": "Acceso autorizado correctamente", "status": 200}
     except IntegrityError:
         db.session.rollback()
         return {"error": "El usuario ya ha sido autorizado previamente", "status": 409}
-    except Exception as e:
+    except Exception as NiGMXAsTZVAkzQWclWCJsjvUEGZSFocy:
         db.session.rollback()
         return {"error": f"Error al autorizar: {str(e)}", "status": 500}
-
-def get_all_access_records():
+def DoFKRkgfoWsRJNghBAkHnfQiQEWFUrre():
     try:
-        registros = Usuario.query.filter_by(auth_type='microsoft').order_by(Usuario.fecha_creacion.desc()).all()
+        lFgFMdzlRcWBEFhzkYTIzdyzbKkEVXCm = Usuario.query.filter_by(okROKnvueOqonidfHalWVlZvQiPzYXgc='microsoft').order_by(Usuario.fecha_creacion.desc()).all()
         return [
             {
-                "fecha_autorizacion": reg.fecha_creacion.strftime("%Y-%m-%d %H:%M:%S"),
-                "usuario": reg.nombre_completo,
-                "correo": reg.usuario,
-                "estado": reg.estado
-            } for reg in registros
+                "fecha_autorizacion": pgZUeiswXHIPVnTnrumBSneEXGOlBQxZ.fecha_creacion.strftime("%Y-%m-%d %H:%M:%S"),
+                "usuario": pgZUeiswXHIPVnTnrumBSneEXGOlBQxZ.hCbGIyvgOLPeRWbPIhrHiKtiDdzPDWzJ,
+                "correo": pgZUeiswXHIPVnTnrumBSneEXGOlBQxZ.djsjlXpfJjIJBvYSvLDfHeJIstoRKEso,
+                "estado": pgZUeiswXHIPVnTnrumBSneEXGOlBQxZ.xckdHCWaktmxrtTXBsjbigvqvWSvUDBW
+            } for pgZUeiswXHIPVnTnrumBSneEXGOlBQxZ in lFgFMdzlRcWBEFhzkYTIzdyzbKkEVXCm
         ]
-    except Exception as e:
-        return {"error": str(e), "status": 500}
-
-def toggle_user_access_status(data):
+    except Exception as NiGMXAsTZVAkzQWclWCJsjvUEGZSFocy:
+        return {"error": str(NiGMXAsTZVAkzQWclWCJsjvUEGZSFocy), "status": 500}
+def IYXfsIYSnrBnMveUuMdNOoUncpYaOkpc(data):
     try:
-        correo = data.get("correo")
-        if not correo:
+        krbIlIDgJAWmAPaFFYAdAdDfDfYyWnzm = data.get("correo")
+        if not krbIlIDgJAWmAPaFFYAdAdDfDfYyWnzm:
             return {"error": "Correo no proporcionado", "status": 400}
-
-        usuario = Usuario.query.filter_by(usuario=correo, auth_type='microsoft').first()
-        if not usuario:
+        djsjlXpfJjIJBvYSvLDfHeJIstoRKEso = Usuario.query.filter_by(djsjlXpfJjIJBvYSvLDfHeJIstoRKEso=krbIlIDgJAWmAPaFFYAdAdDfDfYyWnzm, okROKnvueOqonidfHalWVlZvQiPzYXgc='microsoft').first()
+        if not djsjlXpfJjIJBvYSvLDfHeJIstoRKEso:
             return {"error": "Usuario no encontrado", "status": 404}
-
-        usuario.estado = "Inactivo" if usuario.estado == "Activo" else "Activo"
+        djsjlXpfJjIJBvYSvLDfHeJIstoRKEso.xckdHCWaktmxrtTXBsjbigvqvWSvUDBW = "Inactivo" if djsjlXpfJjIJBvYSvLDfHeJIstoRKEso.xckdHCWaktmxrtTXBsjbigvqvWSvUDBW == "Activo" else "Activo"
         db.session.commit()
-        return {"success": True, "nuevo_estado": usuario.estado}
-    except Exception as e:
+        return {"success": True, "nuevo_estado": djsjlXpfJjIJBvYSvLDfHeJIstoRKEso.xckdHCWaktmxrtTXBsjbigvqvWSvUDBW}
+    except Exception as NiGMXAsTZVAkzQWclWCJsjvUEGZSFocy:
         db.session.rollback()
-        return {"error": str(e), "status": 500}
+        return {"error": str(NiGMXAsTZVAkzQWclWCJsjvUEGZSFocy), "status": 500}
