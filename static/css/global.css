@@ -1,0 +1,789 @@
+/* ============================================================
+   ESTILOS BASE DEL SISTEMA (FUENTES, ESTRUCTURA Y SIDEBAR)
+   ------------------------------------------------------------
+   Esta sección define las fuentes principales, diseño del cuerpo,
+   comportamiento del sidebar (menú lateral) y su versión responsive
+   para escritorio y móvil.
+   ============================================================ */
+
+/*FUENTES DE GOOGLE*/
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+
+/* ==================== ESTILOS BASE ==================== */
+html,
+body,
+div,
+section,
+article,
+main,
+aside,
+header,
+footer {
+    caret-color: transparent;
+}
+
+input,
+textarea,
+[contenteditable="true"] {
+    caret-color: auto;
+}
+
+*:not(input):not(textarea):not(button):not(select):not([tabindex]) {
+    outline: none;
+}
+
+
+#contenidoPrincipal_usuarios,
+#contenidoPrincipal_configuracion,
+#contenidoPrincipal_informesUso,
+#contenidoPrincipal_licenciamiento,
+#contenidoPrincipal_sitiosSharepoint {
+  animation: fadeIn 0.5s ease;
+  margin: 5px;
+}
+
+@media (max-width: 767px) {
+  .modulo-header {
+    padding-left: 65px !important;
+  }
+}
+
+/* ============================================================
+   ESTILOS DEL CONTENEDOR DE MÓDULOS
+   ------------------------------------------------------------
+   Define la apariencia del área principal donde se cargan los
+   módulos o secciones del sistema.
+   ============================================================ */
+
+.containerPrincipalModulos {
+  overflow: hidden;
+  zoom: 78%;
+  flex: 1;
+}
+
+
+
+.modulo-header {
+  display: flex;
+  align-items: center;
+  background-color:#05182c;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgb(129, 129, 129);
+  border-left: 5px solid #024791;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
+  margin-top: 1px;
+  margin-bottom: 1px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff; 
+}
+
+.modulo-header i {
+  margin-right: 15px;
+  font-size: 1.6rem;
+  opacity: 0.9;
+  color: #ffffff; 
+}
+
+.modulo-body {
+  padding: 3px;
+}
+
+/*==============================================================================
+=                             INDICADOR DE PROCESOS EN CURSO                  =
+=    Línea animada tipo "neón" que se muestra en la parte inferior de un     =
+=    contenedor para indicar que hay una acción en progreso o cargando.      =
+==============================================================================*/
+
+.progress-line {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, #00c3ff, #00f829, #ff00f2, #00c3ff, transparent);
+  background-size: 400% 100%;
+  animation: moveNeon 3.5s linear infinite;
+  filter: blur(1px) brightness(1.3);
+  box-shadow: 0 0 10px rgba(0, 255, 247, 0.4);
+  z-index: 10;
+}
+
+@keyframes moveNeon {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes combinedEffect {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+    text-shadow: 0 0 0 rgba(0, 39, 77, 0);
+  }
+
+  50% {
+    transform: scale(1.03);
+    opacity: 1;
+    text-shadow: 0 0 5px rgba(0, 39, 77, 0.3);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+    text-shadow: 0 0 0 rgba(0, 39, 77, 0);
+  }
+}
+
+/*==============================================================================
+=              SECCIÓN USUARIOS - PANEL DE INFORMACIÓN INDIVIDUAL             =
+=                                                                             =
+=  Estilos para el Modal de información del usuario que se muestra       =
+=  al hacer doble clic en un registro de la tabla principal.                        =
+==============================================================================*/
+
+/* Estilos para el modal de SweetAlert2 */
+/* Estilos mejorados para el modal */
+.user-profile-modal-container {
+  font-family: inherit;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 10px;
+  color: #333;
+}
+
+.user-profile-modal-container .user-header {
+  padding-bottom: 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+.user-profile-modal-container .user-header h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  background-color: #00274d;
+  border-radius: 20px;
+  padding: 8px 16px;
+  display: inline-block;
+  line-height: 1.2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  max-width: 100%;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.user-profile-modal-container .user-email {
+  margin: 10px;
+  color: #3c5175;
+  font-size: 20px;
+  padding: 4px 10px;
+  background-color: #e9e9e9;
+  border-radius: 20px;
+  border: 1px solid #cccccc;
+  flex-wrap: wrap;
+}
+
+/* Estilos comunes para ambos spans (ID y fecha) */
+.user-profile-modal-container .user-header .user-meta .user-id,
+.user-profile-modal-container .user-header .user-meta .user-creation-date {
+  padding: 4px 10px;
+  color: #3c5175;
+  font-size: 1em;
+
+  background-color: #e9e9e9;
+  border-radius: 20px;
+  border: 1px solid #cccccc;
+}
+
+/* Estilo específico para el ID */
+.user-profile-modal-container .user-header .user-meta .user-id {
+  font-family: monospace;
+}
+
+/* Contenedor principal */
+.user-profile-modal-container .user-header .user-meta.text-center {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.user-profile-modal-container .user-meta {
+  color: #666666;
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+}
+
+.user-profile-modal-container .user-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.user-profile-modal-container .info-card {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border-left: 4px solid #4299e1;
+  border: 1px solid #ccc;
+}
+
+.user-profile-modal-container .info-card h3 {
+  margin-top: 0;
+  font-size: 1em;
+  color: #555;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.user-profile-modal-container .info-card p {
+  margin: 8px 0 0 0;
+  word-break: break-word;
+}
+
+.user-profile-modal-container .last-signin-value {
+  margin: 8px 0 0 0;
+  word-break: break-word;
+}
+
+.user-profile-modal-container .licenses-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+/* Estilos para los badges */
+.badge {
+  display: inline-block;
+  padding: 3px 7px;
+  font-size: 0.85em;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 10px;
+  color: white;
+}
+
+/*==============================================================================
+=             MODAL SECCIÓN INFORMES DE USO - PANEL DE INFORMACIÓN INDIVIDUAL             =
+=                                                                             =
+=  Estilos para el Modal de información del USUARIO que se muestra       =
+=  al hacer doble clic en un registro de la tabla principal.                        =
+==============================================================================*/
+
+.user-usage-modal-container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  padding: 0;
+  zoom: 0.85;
+}
+
+/* Encabezado azul como en la imagen */
+.user-header-blue {
+  background: #ffffff;
+  color: white;
+  padding: 20px;
+  margin: -20px -20px 20px -20px;
+  border-radius: 8px 8px 0 0;
+  border: 1px solid rgb(173, 173, 173);
+  display: flex;
+  flex-direction: column;
+}
+
+.user-header-blue .user-name {
+  margin: 0;
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  background-color: #00274d;
+  border-radius: 20px;
+  padding: 8px 16px;
+  display: inline-block;
+  line-height: 1.2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  max-width: 100%;
+  box-sizing: border-box;
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.user-header-blue .user-email {
+  padding: 4px 10px;
+  color: #4a5568;
+  font-size: 1.3em;
+  margin: 10px;
+  display: inline-block;
+
+  background-color: #e9e9e9;
+  border-radius: 20px;
+  border: 1px solid #cccccc;
+}
+
+.user-header-blue .user-meta {
+  display: flex;
+  gap: 15px;
+  font-size: 14px;
+  opacity: 0.85;
+  flex-wrap: wrap;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.user-header-blue .user-meta span {
+  white-space: nowrap;
+}
+
+.user-header-blue .user-meta .user-creation-date {
+  color: #3c5175;
+  font-size: 14px;
+  padding: 4px 9px;
+  flex-wrap: wrap;
+
+  background-color: #e9e9e9;
+  border-radius: 20px;
+  border: 1px solid #cccccc;
+}
+
+.usage-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  padding: 0 5px;
+}
+
+/* Estilos para cada sección con colores específicos */
+.usage-section {
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.outlook-section {
+  background: rgba(2, 71, 104, 0.15); /* +viveza */
+  border: 1px solid rgba(0, 120, 212, 0.3); /* +contraste */
+}
+
+.onedrive-section {
+  background: rgba(10, 38, 75, 0.15); /* un azul más profundo */
+  border: 1px solid rgba(35, 70, 115, 0.3);
+}
+
+.teams-section {
+  background: rgba(37, 1, 95, 0.15); /* tono morado más rico */
+  border: 1px solid rgba(68, 70, 140, 0.3);
+}
+
+.sharepoint-section {
+  background: rgba(0, 43, 21, 0.15); /* verde más robusto */
+  border: 1px solid rgba(36, 120, 76, 0.3);
+}
+
+.section-title {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #2c3e50;
+}
+
+.outlook-section .section-title {
+  color: #0078d4;
+}
+
+.onedrive-section .section-title {
+  color: #2c5282;
+}
+
+.teams-section .section-title {
+  color: #5a5b9f;
+}
+
+.sharepoint-section .section-title {
+  color: #2e8b57;
+}
+
+.section-title i {
+  font-size: 16px;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.info-item {
+  background: rgba(240, 240, 240, 0.7);
+  border-radius: 6px;
+  padding: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgb(168, 168, 168);
+}
+
+.info-label {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.info-value {
+  font-weight: 500;
+  color: #2c3e50;
+  font-size: 14px;
+}
+
+/* Estilos para SweetAlert2 */
+.user-usage-modal .swal2-close {
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.8);
+  top: 15px;
+  right: 15px;
+}
+
+.user-usage-modal .swal2-close:hover {
+  color: white;
+}
+
+.user-usage-modal .swal2-popup {
+  padding: 0;
+  overflow: hidden;
+}
+
+th.sorting:after,
+th.sorting_asc:after,
+th.sorting_desc:after {
+  content: none !important; 
+}
+
+
+
+/*==============================================================================
+=          ESTILOS DE LOS ENCABEZADOS DE MÓDULOS: FILTROS, OPCIONES Y MÁS     =
+=  Define la estructura visual de los encabezados y disposición general de    =
+=  los contenedores que agrupan filtros, botones y estadísticas.              =
+==============================================================================*/
+
+/*------------------------------------- Estilos para el Modal de cargar en Informes Uso ----------------------------------------*/
+
+.spinner-bubble {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #ccc;
+  border-top: 5px solid #00458f;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*------------------ Selected Filtros - Modulo Usuarios -------------------*/
+
+.filtroInformesUso {
+  border-radius: 8px;
+  border: 1px solid #a7a7a7;
+  padding: 10px;
+  margin-bottom: 10px;
+  flex: 1;
+  background: #f0f4f7;
+}
+
+.filtroInformesUso,
+.filtroPeriodoInformes,
+.filtroUsuariosInformes,
+.filtroPeriodoInformes_SP {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 2px solid #000000;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+  appearance: none;
+  background-color: #00274d;
+  color: rgb(255, 255, 255);
+
+  min-width: 160px;
+}
+
+.filtroInformesUso option,
+.filtroPeriodoInformes option,
+.filtroUsuariosInformes option,
+.filtroPeriodoInformes_SP option {
+  font-family: "Poppins", sans-serif;
+  background-color: #b1b1b1;
+  color: #000000;
+  font-size: 14px;
+}
+
+.filtroInformesUso:hover,
+.filtroPeriodoInformes:hover,
+.filtroUsuariosInformes:hover,
+.filtroPeriodoInformes_SP:hover {
+  background-color: #0e3f6a;
+  /* Azul más oscuro y suave */
+  border-color: #0c3a5f;
+  /* Borde más sutil */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.filtroInformesUso,
+.contenedorFiltroInformesUso {
+  width: 400px;
+}
+
+
+
+/*------------------- Rotación del Icono del Boton actualizar en Equipos Informaticos ------------------*/
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*--------------------------------------------------------------------------------------------*/
+
+
+
+
+/*------------------------------------------------- Tabla Uusarios (Aqui se aplican estilos generales a todas las Tablas de app -----------------------------------------------*/
+
+.text-center {
+  text-align: center !important;
+  white-space: nowrap;
+}
+
+.containerOpcionesTabla {
+  margin: 8px 1px;
+  padding: 10px;
+  border: 1px solid #9f9f9f;
+  border-radius: 8px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+label {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 18px !important;
+}
+
+#tablaUsuariosEntraID,
+#tablaLicenciasMicrosoft365,
+#tablaLicenciasFreeTrial,
+#tablaLicenciasSinCategorizar,
+.tablaInformesUso,
+#tablaSitiosSharePoint,
+#tablaLicencias,
+#tabla-accesos {
+  width: 100% !important;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+#tablaUsuariosEntraID tbody tr,
+#tablaLicenciasMicrosoft365 tbody tr,
+#tablaLicenciasFreeTrial tbody tr,
+#tablaLicenciasSinCategorizar tbody tr,
+.tablaInformesUso tbody tr,
+#tablaSitiosSharePoint tbody tr,
+#tablaLicencias tbody tr,
+#tabla-accesos tbody tr {
+  border-bottom: 2px solid #ddd;
+  padding: 10px;
+}
+
+#tablaUsuariosEntraID thead,
+#tablaLicenciasMicrosoft365 thead,
+#tablaLicenciasFreeTrial thead,
+#tablaLicenciasSinCategorizar thead,
+.tablaInformesUso thead,
+#tablaSitiosSharePoint thead,
+#tablaLicencias thead,
+#tabla-accesos thead {
+  background-color: #002853 !important;
+  color: #ffffff !important;
+  border: 2px solid #cccccc !important;
+  text-align: center;
+}
+
+#tablaUsuariosEntraID th,
+#tablaLicenciasMicrosoft365 th,
+#tablaLicenciasFreeTrial th,
+#tablaLicenciasSinCategorizar th,
+.tablaInformesUso th,
+#tablaSitiosSharePoint th,
+#tablaLicencias th,
+#tabla-accesos th {
+  padding: 6px;
+  text-align: left;
+  border: 1px solid hsl(0, 0%, 75%);
+}
+
+#tablaUsuariosEntraID td,
+#tablaLicenciasMicrosoft365 td,
+#tablaLicenciasFreeTrial td,
+#tablaLicenciasSinCategorizar td,
+.tablaInformesUso td,
+#tablaSitiosSharePoint td,
+#tablaLicencias td,
+#tabla-accesos td {
+  padding: 3px;
+  text-align: left;
+  border: 1px solid #a6a6a6 !important;
+}
+
+#tablaUsuariosEntraID tbody tr:nth-child(even),
+#tablaLicenciasMicrosoft365 tbody tr:nth-child(even),
+#tablaLicenciasFreeTrial tbody tr:nth-child(even),
+#tablaLicenciasSinCategorizar tbody tr:nth-child(even),
+.tablaInformesUso tbody tr:nth-child(even),
+#tablaSitiosSharePoint tbody tr:nth-child(even),
+#tabla-accesos tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#tablaUsuariosEntraID tbody tr:nth-child(odd),
+#tablaLicenciasMicrosoft365 tbody tr:nth-child(odd),
+#tablaLicenciasFreeTrial tbody tr:nth-child(odd),
+#tablaLicenciasSinCategorizar tbody tr:nth-child(odd),
+.tablaInformesUso tbody tr:nth-child(odd),
+#tablaSitiosSharePoint tbody tr:nth-child(odd),
+#tabla-accesos tbody tr:nth-child(odd) {
+  background-color: #e8e8e8;
+}
+
+#tablaUsuariosEntraID tbody tr:hover,
+#tablaLicenciasMicrosoft365 tbody tr:hover,
+#tablaLicenciasFreeTrial tbody tr:hover,
+#tablaLicenciasSinCategorizar tbody tr:hover,
+.tablaInformesUso tbody tr:hover,
+#tablaSitiosSharePoint tbody tr:hover,
+#tabla-accesos tbody tr:hover {
+  background-color: #a9c0d8;
+  transition: background-color 0.2s ease;
+}
+
+.dt-search input.dt-input {
+  width: 300px !important;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 2px solid #00274d;
+  border-radius: 20px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 2px 4px rgba(0, 39, 77, 0.3);
+}
+
+.dt-search input.dt-input:focus {
+  border-color: #001a33;
+  box-shadow: 0px 2px 8px rgba(0, 39, 77, 0.6);
+}
+
+table.dataTable thead th {
+  text-align: center !important;
+}
+
+/*----------------------- DataTables -------------------------------*/
+span.dt-column-order {
+  display: none;
+}
+
+/*----------------------- Sweetalert2 -------------------------------*/
+
+.btn-blue {
+  background-color: #0086cb;
+  color: #ffffff;
+}
+
+h4 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  text-align: center;
+  background-color: #d3d3d3 !important;
+  margin-top: 2px !important;
+}
+
+/*=========================================================================*/
+/* CCS Carga de Informes - Modal */
+
+.titulo-sime {
+  font-size: 24px;
+  font-weight: bold;
+  color: #00274d;
+}
+
+.contenedor-proceso {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icono-proceso {
+  max-width: 180px;
+  max-height: 180px;
+  object-fit: contain;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.texto-proceso {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.periodo-proceso {
+  font-size: 16px;
+  color: #1a73e8;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.custom-popup {
+  border-radius: 20px;
+  border-top: 8px solid #004c78;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+}
+

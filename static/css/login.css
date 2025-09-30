@@ -1,0 +1,450 @@
+/* ==================== ESTILOS BASE ==================== */
+html,
+body,
+div,
+section,
+article,
+main,
+aside,
+header,
+footer {
+    caret-color: transparent;
+}
+
+input,
+textarea,
+[contenteditable="true"] {
+    caret-color: auto;
+}
+
+*:not(input):not(textarea):not(button):not(select):not([tabindex]) {
+    outline: none;
+}
+
+/* ==================== VARIABLES Y RESET ==================== */
+:root {
+    --dark-bg: #12121f;
+    --darker-bg: #0a0a12;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --primary-blue: #005a9e;
+    --secondary-blue: #003d66;
+    --accent-purple: #6a1db8;
+    --accent-teal: #00a893;
+    --text-light: #242424;
+    --text-gray: #3f3f3f;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --success: #1a7bb9;
+    --error: #b51c4a;
+    --warning: #cc8400;
+    --circuit-color: rgba(98, 180, 221, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ==================== ESTILOS GENERALES ==================== */
+body {
+    background-color: var(--darker-bg);
+    background-image:
+        url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 60h40m40 0h40M60 0v40m0 40v40' stroke='%23005a9e' stroke-width='1' stroke-opacity='0.08'/%3E%3Ccircle cx='60' cy='60' r='8' fill='%23005a9e' fill-opacity='0.05'/%3E%3C/svg%3E"),
+        linear-gradient(135deg, rgba(0, 60, 113, 0.15) 0%, rgba(10, 10, 30, 0.9) 100%);
+    background-size: 100px 100px, cover;
+    color: var(--text-light);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem; /* MODIFICADO: Menos padding general */
+    min-height: 100vh;
+
+}
+
+/* ==================== CONTENEDOR PRINCIPAL ==================== */
+.login-container {
+    width: 100%;
+    max-width: 920px; /* MODIFICADO: Ancho total ligeramente reducido */
+    display: flex;
+    background: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 1px solid var(--border-color);
+    position: relative;
+}
+
+.login-container:hover {
+    /* transform: translateY(-5px); */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* ==================== PANEL DE FORMULARIO (IZQUIERDA) ==================== */
+.form-panel {
+    flex: 1.2;
+    padding: 1.5rem 2.0rem; /* MODIFICADO: Padding vertical y horizontal reducido */
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 1.2rem; /* MODIFICADO: Margen inferior reducido */
+}
+
+.logo {
+    max-width: 120px; /* MODIFICADO: Ancho máximo del logo reducido */
+    height: auto;
+    margin-bottom: -1rem;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.form-header h2 {
+    font-size: 1.3rem; /* MODIFICADO: Tamaño del título reducido */
+    position: relative;
+    display: inline-block;
+    color: #004C78;
+}
+
+.form-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: var(--accent-teal);
+    border-radius: 3px;
+}
+
+/* Pestañas de navegación */
+.tab-buttons {
+    display: flex;
+    margin-bottom: 1rem; /* MODIFICADO: Margen inferior reducido */
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    padding: 5px;
+    border: 1px solid var(--border-color);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 0.55rem; /* MODIFICADO: Padding reducido */
+    background: transparent;
+    border: none;
+    color: var(--text-gray);
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 0.82rem; /* MODIFICADO: Tamaño de fuente reducido */
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-purple) 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 60, 113, 0.2);
+}
+
+.subtitulo {
+    text-align: center;
+    color: var(--text-gray);
+    margin-bottom: 1rem; /* MODIFICADO: Margen inferior reducido */
+    font-size: 0.85rem; /* MODIFICADO: Tamaño de fuente reducido */
+}
+
+/* Contenido de pestañas */
+.tab-pane {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== FORMULARIOS Y ENTRADAS ==================== */
+.input-group {
+    margin-bottom: 0.8rem; /* MODIFICADO: Espacio entre campos reducido */
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: var(--text-gray);
+    font-size: 0.85rem; /* MODIFICADO: Tamaño de fuente reducido */
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.input-container:focus-within {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 2px rgba(0, 90, 158, 0.2);
+}
+
+.input-icon {
+    padding: 0 0.9rem; /* MODIFICADO: Menos padding horizontal para el icono */
+    color: var(--text-gray);
+    transition: all 0.3s ease;
+}
+
+.input-container:focus-within .input-icon {
+    color: var(--accent-teal);
+}
+
+.input-container input {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    padding: 0.65rem; /* MODIFICADO: Altura del input reducida */
+    color: var(--text-light);
+    width: 100%;
+    font-size: 0.85rem;
+}
+
+.input-container input:focus {
+    outline: none;
+}
+
+/* ==================== BOTONES ==================== */
+.formulario button {
+    width: 100%;
+    padding: 0.75rem; /* MODIFICADO: Altura del botón reducida */
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-purple) 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 60, 113, 0.2);
+}
+
+.formulario button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 60, 113, 0.3);
+}
+
+.formulario button:disabled {
+    background: #e0e0e0;
+    color: #a0a0a0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-microsoft-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.btn-microsoft-login img {
+    width: 22px;
+    height: 22px;
+}
+
+.formulario-login{
+    padding: 1rem;
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 8px;
+}
+
+/* ==================== PANEL DE IMAGEN (DERECHA) ==================== */
+.image-panel {
+    flex: 1;
+    background-image: url("../img/hex_login.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+/* ==================== NOTIFICACIONES ==================== */
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    max-width: 90%;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+}
+
+.notification {
+    padding: 15px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-left: 4px solid;
+    transform: translateX(120%);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.notification.error {
+    border-color: var(--error);
+}
+
+.notification.success {
+    border-color: var(--success);
+}
+
+.notification.info {
+    border-color: var(--primary-blue);
+}
+
+.notification-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.notification-icon {
+    font-size: 1.2rem;
+    margin-top: 2px;
+}
+
+.notification p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.notification strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--text-light);
+}
+
+.notification-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.notification-progress::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    animation: progress 4.5s linear forwards;
+}
+
+.notification.error .notification-progress::after {
+    background: var(--error);
+}
+
+.notification.success .notification-progress::after {
+    background: var(--success);
+}
+
+.notification.info .notification-progress::after {
+    background: var(--primary-blue);
+}
+
+@keyframes progress {
+    to {
+        width: 0;
+    }
+}
+
+/* ==================== FOOTER ==================== */
+.footer {
+   text-align: center;
+    padding: 1rem;
+    margin-top: 1rem;
+    color: #d6d6d6;
+    font-size: 0.8rem;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-teal), transparent);
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media (max-width: 850px) {
+    .wrapper {
+        padding: 1rem;
+        justify-content: flex-start;
+    }
+
+    .login-container {
+        flex-direction: column;
+        max-width: 450px;
+        background: rgba(255, 255, 255, 0.98);
+    }
+
+    .image-panel {
+        display: none;
+    }
+
+    .form-panel {
+        padding: 2rem 1.5rem;
+    }
+
+    body {
+        background-image:
+            linear-gradient(rgba(10, 10, 30, 0.95), rgba(5, 5, 20, 0.95)),
+            url("../img/hex_login.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+}

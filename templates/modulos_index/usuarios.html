@@ -1,0 +1,128 @@
+<div id="usuarios" class="containerPrincipalModulos">
+  <div class="modulo-header">Usuarios</div>
+  
+  <div id="contenidoPrincipal_usuarios" style="display: none;">
+    
+    <div class="containerOpcionesTabla">
+      <div class="contenedorOpciones">
+        <div class="seccionFiltros">
+          <div class="encabezadoOpciones">
+            <h2>Filtros</h2>
+            <p>Usa los filtros para explorar y segmentar la tabla.</p>
+          </div>
+
+          <div class="filaFiltros">
+            <div class="contenedorFiltro">
+              <select class="form-control filtroInicioSesion"></select>
+              <button class="btn-limpiar btn-limpiar-filtroInicioSesion" title="Quitar filtro">❌</button>
+            </div>
+
+            <div class="contenedorFiltro">
+              <select class="form-control filtroUltimaConexion"></select>
+              <button class="btn-limpiar btn-limpiar-filtroConexion" title="Quitar filtro">❌</button>
+            </div>
+
+            <div class="contenedorFiltro">
+              <select class="form-control filtroLicencias"></select>
+              <button class="btn-limpiar btn-limpiar-filtroLicencias" title="Quitar filtro">❌</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="seccionOpciones">
+          <div class="encabezadoOpciones">
+            <h2>Opciones</h2>
+            <p>Actualiza, descarga historial o exporta información.</p>
+          </div>
+
+          <div class="filaBotones">
+            <button class="btn btn-sm custom-btn btn-ActualizarUsuarios" type="button">
+              <i class="fas fa-rotate-right custom-icon"></i>
+              <span class="custom-text">Actualizar</span>
+            </button>
+
+            <button class="btn btn-sm custom-btn btn-ExportarExcel" type="button">
+              <i class="fas fa-file-excel custom-icon"></i>
+              <span class="custom-text">Exportar a Excel</span>
+            </button>
+
+            <button class="btn btn-sm custom-btn btn-DescargarUltimaSesion" type="button">
+              <i class="fas fa-download custom-icon"></i>
+              <span class="custom-text">Descargar última conexión</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="seccionEstadisticas">
+          <div class="encabezadoOpciones">
+            <h2>Estadísticas</h2>
+            <p>Métricas relevantes y datos resumidos de los usuarios.</p>
+          </div>
+
+          <div class="tablaEstadisticas">
+            <div class="filaEstadistica">
+              <span class="tituloEstadistica">Total usuarios:</span>
+              <span class="valorEstadistica" id="totalUsuarios">0</span>
+            </div>
+
+            <div class="filaEstadistica">
+              <span class="tituloEstadistica">Usuarios con licencias:</span>
+              <span class="valorEstadistica" id="usuariosConLicencias">0</span>
+            </div>
+
+            <div class="filaEstadistica">
+              <span class="tituloEstadistica">Usuarios bloqueados con licencia:</span>
+              <span class="valorEstadistica" id="usuariosBloqueadosConLicencia">0</span>
+            </div>
+
+            <div class="filaEstadistica">
+              <span class="tituloEstadistica">Dominio .ORG con licencias:</span>
+              <span class="valorEstadistica" id="usuariosORGConLicencia">0</span>
+            </div>
+
+            <div class="filaEstadistica">
+              <span class="tituloEstadistica">Dominio .NET con licencias:</span>
+              <span class="valorEstadistica" id="usuariosNETConLicencia">0</span>
+            </div>
+
+            <div class="filaEstadistica">
+              <span class="tituloEstadistica">Otros dominios con licencias:</span>
+              <span class="valorEstadistica" id="usuariosOTRConLicencia">0</span>
+            </div>
+
+            <div class="filaEstadistica">
+              <span class="tituloEstadistica">Con licencia, sin inicio de sesión:</span>
+              <span class="valorEstadistica" id="usuariosSinInicioSesion">-</span>
+            </div>
+
+            <div class="filaEstadistica">
+              <span class="tituloEstadistica">Con licencia, sesión (Últimos 8 días):</span>
+              <span class="valorEstadistica" id="usuariosUltimos8Dias">-</span>
+            </div>
+
+            <div class="filaEstadistica">
+              <span class="tituloEstadistica">Con licencia, sesión (Entre 8 y 30 días):</span>
+              <span class="valorEstadistica" id="usuariosEntre8y30Dias">-</span>
+            </div>
+
+            <div class="filaEstadistica">
+              <span class="tituloEstadistica">Con licencia, sesión (Más de 30 días):</span>
+              <span class="valorEstadistica" id="usuariosMasDe30Dias">-</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="seccionTabla">
+        <table id="tablaUsuariosEntraID" class="display">
+          <thead>
+            <!--Encabezado de la tabla-->
+          </thead>
+          <tbody>
+            <!-- Datos de la tabla -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

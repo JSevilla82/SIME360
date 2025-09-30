@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIME 360 | Sesión Expirada</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ==================== VARIABLES Y RESET ==================== */
+        :root {
+            --dark-bg: #12121f;
+            --darker-bg: #0a0a12;
+            --card-bg: rgba(22, 22, 39, 0.95);
+            --primary-blue: #0077cc;
+            --secondary-blue: #005a9e;
+            --accent-purple: #8a2be2;
+            --accent-teal: #00c4b0;
+            --text-light: #e0e0e0;
+            --text-gray: #a0a0a0;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --success: #1DA1F2;
+            --error: #E0245E;
+            --warning: #FFA500;
+            --circuit-color: rgba(0, 180, 255, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* ==================== ESTILOS GENERALES ==================== */
+        body {
+            background-color: var(--darker-bg);
+            background-image: 
+                url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 60h40m40 0h40M60 0v40m0 40v40' stroke='%230077cc' stroke-width='1' stroke-opacity='0.08'/%3E%3Ccircle cx='60' cy='60' r='8' fill='%230077cc' fill-opacity='0.05'/%3E%3C/svg%3E"),
+                linear-gradient(135deg, rgba(0, 60, 113, 0.15) 0%, rgba(10, 10, 30, 0.9) 100%);
+            background-size: 100px 100px, cover;
+            color: var(--text-light);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        /* ==================== CONTENEDOR PRINCIPAL ==================== */
+        .expired-container {
+            width: 100%;
+            max-width: 500px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            padding: 3rem 2.5rem;
+            text-align: center;
+            border-top: 4px solid var(--warning);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo {
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .expired-icon {
+            font-size: 3.5rem;
+            color: var(--warning);
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        .expired-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--warning);
+            margin-bottom: 1rem;
+        }
+
+        .expired-message {
+            font-size: 1rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .btn-login {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.9rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-purple) 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 60, 113, 0.3);
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 60, 113, 0.4);
+        }
+
+        /* ==================== MEDIA QUERIES ==================== */
+        @media (max-width: 480px) {
+            body {
+                padding: 1.5rem;
+            }
+            
+            .expired-container {
+                padding: 2.5rem 1.5rem;
+            }
+            
+            .expired-title {
+                font-size: 1.3rem;
+            }
+            
+            .expired-message {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <img src="{{ url_for('static', filename='img/logo_sime.png') }}" alt="SIME 360 Logo" class="logo">
+
+    <div class="expired-container">
+        <i class="fas fa-clock expired-icon"></i>
+        <h1 class="expired-title">Sesión Expirada</h1>
+        <p class="expired-message">{{ mensaje }}. Por favor, inicia sesión nuevamente para continuar.</p>
+        <a href="{{ url_for('login') }}" class="btn-login">
+            <i class="fas fa-right-to-bracket"></i>
+            Iniciar Sesión
+        </a>
+    </div>
+</body>
+
+</html>

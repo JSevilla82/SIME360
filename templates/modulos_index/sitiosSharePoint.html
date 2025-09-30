@@ -1,0 +1,108 @@
+<div id="sitiosSharePoint" class="containerPrincipalModulos">
+  <div class="modulo-header">Sitios de SharePoint</div>
+
+  <!-- <div class="modulo-body">
+    <p>Administra los sitios de SharePoint vinculados a la organización.</p>
+    <p>Puedes gestionar permisos, accesos y configuración general de los sitios.</p>
+  </div> -->
+  <div id="contenidoPrincipal_sitiosSharepoint" style="display: none;">
+
+    <div class="containerOpcionesTabla">
+
+      <div class="contenedorOpciones">
+                <div class="seccionFiltros">
+          <div class="encabezadoOpciones">
+            <h2>Filtros</h2>
+            <p>Usa los filtros para explorar y segmentar la tabla.</p>
+          </div>
+
+          <div class="filaFiltros_SP">
+            
+            <div class="contenedorFiltro">
+              <select class="form-control filtroUltimaActividad_SP"></select>
+              <button class="btn-limpiar btn-limpiar-filtroUltimaActividad_SP" title="Quitar filtro">❌</button>
+            </div>
+
+            <div class="contenedorFiltro">
+              <select class="form-control filtroVisitas_SP"></select>
+              <button class="btn-limpiar btn-limpiar-filtroVisitas_SP" title="Quitar filtro">❌</button>
+            </div>
+
+            <div class="contenedorFiltro">
+              <select class="form-control filtroArchivosActivos_SP"></select>
+              <button class="btn-limpiar btn-limpiar-filtroArchivosActivos_SP" title="Quitar filtro">❌</button>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="seccionOpciones">
+
+          <div class="encabezadoOpciones">
+            <h2>Opciones</h2>
+            <p>Exporta y descarga información.</p>
+          </div>
+
+          <div class="filaBotones">
+
+            <button class="btn btn-sm custom-btn btn-ExportarInformeExcel_SP" type="button">
+              <i class="fas fa-file-excel custom-icon"></i>
+              <span class="custom-text">Exportar a Excel</span>
+            </button>
+
+            <select class="form-control filtroPeriodoInformes_SP" title="Seleccionar período del informe">
+              <option value="7" selected>Mostrando informes de los Últimos 7 días</option>
+              <option value="30">Mostrando informes de los Últimos 30 días</option>
+              <option value="90">Mostrando informes de los Últimos 90 días</option>
+              <option value="180">Mostrando informes de los Últimos 180 días</option>
+            </select>
+
+          </div>
+
+        </div>
+
+        <div class="seccionEstadisticas">
+          
+          <div class="encabezadoOpciones">
+          <h2>Última actualización</h2>
+            <p>Fecha de la última sincronización de informes.</p>
+          </div>
+
+          <div class="tablaEstadisticas">
+
+            <div class="filaEstadistica">
+              <span class="tituloEstadistica">Últ. actualización de los informes de SharePoint:</span>
+              <span class="valorEstadistica" id="actualizacionInformesSharePoint">-</span>
+            </div>
+
+            <div class="filaEstadistica">
+              <span class="tituloEstadistica">Total sitios de sharepoint:</span>
+              <span class="valorEstadistica" id="totalSitiosSharePoint">-</span>
+            </div>
+
+            <div class="filaEstadistica">
+              <span class="tituloEstadistica">Almacenamiento ocupado:</span>
+              <span class="valorEstadistica" id="almacenamientoOcupadoSharePoint">-</span>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="seccionTabla">
+        <div class="tablaScrollContainer">
+          <table id="tablaSitiosSharePoint" class="display" style="width:100%;">
+            <thead>
+              <!--Encabezado de la tabla-->
+            </thead>
+            <tbody>
+              <!-- Datos de la tabla -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

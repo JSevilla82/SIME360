@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIME 360 | Iniciar Sesión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div class="notification-container"></div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div id="flash-messages" style="display: none;">
+            {% for category, message in messages %}
+            <span data-category="{{ category }}" data-message="{{ message }}"></span>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        <div class="login-container">
+
+            <div class="form-panel">
+
+                <div class="form-header">
+                    <img src="{{ url_for('static', filename='img/logo_sime.png') }}" alt="SIME 360 Logo" class="logo">
+                    <h2>Evoluciona tu ecosistema digital</h2>
+                </div>
+
+                <div class="formulario-login">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="microsoft">Cuenta Corporativa</button>
+                        <button class="tab-btn" data-tab="traditional">Cuenta Local</button>
+                    </div>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="microsoft">
+                            <form action="{{ url_for('microsoft_auth.login_microsoft') }}" method="POST" class="formulario" id="microsoft-form"
+                                autocomplete="off" novalidate>
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                <div class="input-group">
+                                    <label for="email">Correo Electrónico</label>
+                                    <div class="input-container">
+                                        <i class="fa-solid fa-envelope input-icon"></i>
+                                        <input type="email" id="email" name="email" placeholder="usuario@empresa.com"
+                                            autocomplete="off">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn-microsoft-login" id="btn-microsoft-login">
+                                    <img src="{{ url_for('static', filename='img/logo_microsoft.png') }}"
+                                        alt="Microsoft">
+                                    <span>Continuar con Microsoft</span>
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="tab-pane" id="traditional">
+                            <form action="{{ url_for('autenticar') }}" method="POST" class="formulario"
+                                autocomplete="off">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                <div class="input-group">
+                                    <label for="usuario">Usuario</label>
+                                    <div class="input-container">
+                                        <i class="fa-solid fa-user input-icon"></i>
+                                        <input id="usuario" type="text" name="usuario" placeholder="Ingresa tu usuario"
+                                            autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label for="contrasena">Contraseña</label>
+                                    <div class="input-container">
+                                        <i class="fa-solid fa-lock input-icon"></i>
+                                        <input id="contrasena" type="password" name="contrasena"
+                                            placeholder="Ingresa tu contraseña" 
+                                            autocomplete="off"
+                                            data-1p-ignore>
+                                    </div>
+                                </div>
+                                <button type="submit" id="submitBtn">Ingresar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="image-panel"></div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 SIME 360 | Todos los derechos reservados</p>
+            <p>Desarrollado por Jairo Sevilla</p>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>
+
+</html>

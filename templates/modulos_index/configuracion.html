@@ -1,0 +1,140 @@
+<div id="configuracion" class="containerPrincipalModulos">
+    <div class="modulo-header">Configuración del Sistema</div>
+
+
+    <div id="contenidoPrincipal_configuracion" style="display: none;">
+
+        <div class="tabs">
+            <button class="tab-button active" data-tab="licencias">
+                <i class="fas fa-key me-2"></i> Licencias
+            </button>
+            <button class="tab-button" data-tab="acceso">
+                <i class="fas fa-user-shield me-2"></i> Acceso a la Herramienta
+            </button>
+        </div>
+
+        <div class="tab-content active" id="licencias">
+            <section style="border: 1px solid rgb(206, 206, 206); padding: 10px; border-radius: 5px;">
+
+                <p style="margin-bottom: 10px;">
+                    En esta pestaña puede configurar las licencias de Microsoft 365 que el sistema usará para mostrar la
+                    información en otros módulos.
+                </p>
+
+                <p>
+                    <strong>Tipos de licencia:</strong><br>
+                    <strong>• Principal:</strong> Licencias esenciales para el entorno Microsoft 365 (Outlook, OneDrive,
+                    Teams, etc.).<br>
+                    <strong>• Secundaria:</strong> Licencias específicas para productos como Power BI Pro u otros
+                    servicios
+                    específicos.
+                </p>
+
+            </section>
+
+            <table id="tablaLicencias" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>SKU ID</th>
+                        <th>Nombre Licencia</th>
+                        <th>Nombre Comercial</th>
+                        <th>Tipo</th>
+                        <th>Pago</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Se llenará dinámicamente con JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tab-content" id="acceso">
+            <div class="info-acceso">
+                <p style="margin-bottom: 10px;">
+                    En esta pestaña puede conceder acceso a la herramienta a un usuario utilizando su cuenta corporativa
+                    de Microsoft de su organización.
+
+                </p>
+                <p>
+                    <strong>Busque al usuario por su correo electrónico, verifique la información y autorice el acceso
+                        cuando esté
+                        seguro.</strong>
+                </p>
+            </div>
+
+            <div class="acceso-herramienta-container">
+                <div class="formulario-acceso">
+                    <div class="busqueda-acceso">
+                        <input type="email" id="buscarCorreoAcceso" placeholder="Ingrese el correo corporativo"
+                            autocomplete="off">
+                        <button onclick="buscarUsuarioPorCorreo()">Buscar</button>
+                    </div>
+
+                    <div class="separador-acceso">Información del usuario</div>
+
+                    <div class="grid-acceso">
+                        <div class="campo-acceso campo-acceso-nombre">
+                            <label for="campoNombreAcceso">Nombre Completo</label>
+                            <input type="text" id="campoNombreAcceso" readonly>
+                        </div>
+                        <div class="campo-acceso">
+                            <label for="campoCorreoAcceso">Correo Electrónico</label>
+                            <input type="text" id="campoCorreoAcceso" readonly>
+                        </div>
+                        <div class="campo-acceso">
+                            <label for="campoCargoAcceso">Cargo</label>
+                            <input type="text" id="campoCargoAcceso" readonly>
+                        </div>
+                        <div class="campo-acceso">
+                            <label for="campoOficinaAcceso">Oficina</label>
+                            <input type="text" id="campoOficinaAcceso" readonly>
+                        </div>
+                        <div class="campo-acceso">
+                            <label for="campoEstadoAcceso">Estado de Cuenta</label>
+                            <input type="text" id="campoEstadoAcceso" readonly>
+                        </div>
+                    </div>
+
+                    <div class="separador-acceso">Información del Líder</div>
+
+                    <div class="grid-acceso">
+                        <div class="campo-acceso">
+                            <label for="campoJefeNombreAcceso">Nombre del Líder</label>
+                            <input type="text" id="campoJefeNombreAcceso" readonly>
+                        </div>
+                        <div class="campo-acceso">
+                            <label for="campoJefeCorreoAcceso">Correo del Líder</label>
+                            <input type="text" id="campoJefeCorreoAcceso" readonly>
+                        </div>
+                        <div class="campo-acceso">
+                            <label for="campoJefeCargoAcceso">Cargo del Líder</label>
+                            <input type="text" id="campoJefeCargoAcceso" readonly>
+                        </div>
+                    </div>
+
+                    <div class="botones-acceso">
+                        <button class="btn-cancelar" id="btnCancelarAcceso" disabled>Cancelar</button>
+                        <button class="btn-autorizar" id="btnAutorizarAcceso" disabled>Autorizar Acceso</button>
+                    </div>
+
+                </div>
+
+                <div class="tabla-resultados">
+                    <table id="tabla-accesos">
+                        <thead>
+                            <tr>
+                                <th>Fecha de Autorización</th>
+                                <th>Usuario</th>
+                                <th>Correo</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

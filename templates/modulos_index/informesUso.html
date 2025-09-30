@@ -1,0 +1,113 @@
+<div id="informesUso" class="containerPrincipalModulos">
+  <div class="modulo-header">Informes de Uso</div>
+
+  <!-- <div class="modulo-body">
+    <p>Consulta los reportes de actividad, uso de licencias y accesos al sistema.</p>
+    <p>Permite exportar informes y visualizarlos en formato gráfico.</p>
+  </div> -->
+  <div id="contenidoPrincipal_informesUso" style="display: none;">
+
+    <div class="containerOpcionesTabla">
+      <div class="contenedorOpciones">
+        <div class="seccionFiltros">
+          <div class="encabezadoOpciones">
+            <h2>Filtros</h2>
+            <p>Usa los filtros para explorar y segmentar la tabla.</p>
+          </div>
+
+          <div class="barra-opciones">
+            <button class="boton-tab activo">
+              <i class="fas fa-chart-bar"></i>
+              Todos los Informes
+            </button>
+            <button class="boton-tab">
+              <i class="fas fa-envelope"></i>
+              Inf. Outlook
+            </button>
+            <button class="boton-tab">
+              <i class="fas fa-cloud"></i>
+              Inf. OneDrive
+            </button>
+            <button class="boton-tab">
+              <i class="fas fa-comments"></i>
+              Inf. Teams
+            </button>
+            <button class="boton-tab">
+              <i class="fas fa-share-square"></i>
+              Inf. SharePoint
+            </button>
+          </div>
+        </div>
+
+        <div class="seccionOpciones">
+          <div class="encabezadoOpciones">
+            <h2>Opciones</h2>
+            <p>Exporta y descarga información.</p>
+          </div>
+
+          <div class="filaBotones">
+            <button class="btn btn-sm custom-btn btn-ExportarInformeXML" type="button">
+              <i class="fas fa-file-code custom-icon"></i>
+              <span class="custom-text">Exportar a XML</span>
+            </button>
+
+            <button class="btn btn-sm custom-btn btn-ExportarInformeExcel" type="button">
+              <i class="fas fa-file-excel custom-icon"></i>
+              <span class="custom-text">Exportar a Excel</span>
+            </button>
+
+            <select class="form-control filtroPeriodoInformes" title="Seleccionar período del informe">
+              <option value="7" selected>Mostrando informes de los Últimos 7 días</option>
+              <option value="30">Mostrando informes de los Últimos 30 días</option>
+              <option value="90">Mostrando informes de los Últimos 90 días</option>
+              <option value="180">Mostrando informes de los Últimos 180 días</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="seccionEstadisticas">
+          <div class="encabezadoOpciones">
+            <h2>Última actualización</h2>
+            <p>Fecha de la última sincronización de cada informe.</p>
+          </div>
+
+          <div class="tablaEstadisticas">
+            <div class="filaEstadistica">
+              <span class="tituloEstadistica">Últ. actualización de Outlook:</span>
+              <span class="valorEstadistica" id="actualizacionOutlook">-</span>
+            </div>
+
+            <div class="filaEstadistica">
+              <span class="tituloEstadistica">Últ. actualización de OneDrive:</span>
+              <span class="valorEstadistica" id="actualizacionOneDrive">-</span>
+            </div>
+
+            <div class="filaEstadistica">
+              <span class="tituloEstadistica">Últ. actualización de Teams:</span>
+              <span class="valorEstadistica" id="actualizacionTeams">-</span>
+            </div>
+
+            <div class="filaEstadistica">
+              <span class="tituloEstadistica">Últ. actualización de SharePoint:</span>
+              <span class="valorEstadistica" id="actualizacionSharePoint">-</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="seccionTabla">
+        <div class="tablaScrollContainer">
+          <table id="tablaInformesUso" class="tablaInformesUso display nowrap" style="width: 100%">
+            <thead>
+              <!--Encabezado de la tabla-->
+            </thead>
+            <tbody>
+              <!-- Datos de la tabla -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <title>SIME 360 | ARUS</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.min.css" />
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/4.3.0/css/fixedColumns.dataTables.min.css" />
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/usuarios.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/inicio.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/configuracion.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/licenciamiento.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/informesUso.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/sitiosSharepoint.css') }}" />
+
+</head>
+
+<body>
+  <button id="btnMenu" aria-label="Abrir menú">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <div class="layout-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="logo">
+        <img src="{{ url_for('static', filename='img/logo_sime.png') }}" alt="Logo SIME 360" />
+      </div>
+      <ul class="menu">
+        
+        {% if 'acceso:inicio' in session.get('permissions', []) %}
+        <li data-modulo="inicio">
+          <i class="fas fa-home"></i>
+          <span>Inicio</span>
+        </li>
+        {% endif %}
+
+        {% if 'acceso:usuarios' in session.get('permissions', []) %}
+        <li data-modulo="usuarios">
+          <i class="fas fa-users"></i>
+          <span>Usuarios</span>
+        </li>
+        {% endif %}
+
+        {% if 'acceso:licenciamiento' in session.get('permissions', []) %}
+        <li data-modulo="licenciamiento">
+          <i class="fas fa-id-badge"></i>
+          <span>Licencias</span>
+        </li>
+        {% endif %}
+
+        {% if 'acceso:informesUso' in session.get('permissions', []) %}
+        <li data-modulo="informesUso">
+          <i class="fas fa-chart-bar"></i> <span>Informes de uso</span>
+        </li>
+        {% endif %}
+
+        {% if 'acceso:sitiosSharePoint' in session.get('permissions', []) %}
+        <li data-modulo="sitiosSharePoint">
+          <i class="fas fa-share-alt"></i> <span>Sitios de SharePoint</span>
+        </li>
+        {% endif %}
+
+        {% if 'acceso:configuracion' in session.get('permissions', []) %}
+        <li data-modulo="configuracion">
+          <i class="fas fa-cogs"></i>
+          <span>Configuración</span>
+        </li>
+        {% endif %}
+
+      </ul>
+
+      <div class="user-info">
+        <div class="user-details">
+          <i class="fas fa-user-circle"></i>
+          <div class="user-texts">
+            <span id="loginNombre">{{ nombre }}</span>
+            <span id="loginCorreo">{{ usuario }}</span>
+          </div>
+        </div>
+        <a href="{{ url_for('pagina_inicio') }}?cerrar=1" class="btnCerrarSesion">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="textoCerrarSesion">Cerrar sesión</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="content-wrapper">
+      <main class="main-content" id="mainContent">
+        <div id="contenidoPrincipal">
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-text">
+          © 2025 SIME 360 | Todos los derechos reservados<br>
+          Desarrollado por Jairo Sevilla
+        </div>
+        <div class="footer-logo-container">
+          <img src="{{ url_for('static', filename='img/logo-arus-footer.jpeg') }}" alt="Logo ARUS"
+            class="footer-logo" />
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+  <script src="https://cdn.datatables.net/fixedcolumns/4.3.0/js/dataTables.fixedColumns.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.43/moment-timezone-with-data.min.js"></script>
+  <script src="https://cdn.datatables.net/plug-ins/1.13.6/sorting/datetime-moment.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.all.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+
+  <script src="{{ url_for('static', filename='js/global.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+</body>
+
+</html>

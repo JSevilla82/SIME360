@@ -1,0 +1,38 @@
+<div class="containerPrincipalModulos">
+  <div class="modulo-header">Panel Principal</div>
+
+  <div id="contenidoPrincipal">
+    <div class="sime360-hero-wrapper">
+      <div class="sime360-hero">
+        <div class="logo-container">
+          <img src="{{ url_for('static', filename='img/logo_sime.png') }}" alt="SIME 360 Logo" class="sime360-logo" />
+        </div>
+        <h1 class="sime360-main-title">Bienvenido, {{ nombre }}</h1>
+        <p class="sime360-tagline orange-text">Transformando Datos en Decisión Estratégica.</p>
+        <p class="sime360-main-description">
+          SIME 360 centraliza y procesa los datos de su tenant de Microsoft 365, transformando información en métricas claras y accionables para optimizar la gestión de licencias, el uso de recursos y la toma de decisiones estratégicas.
+        </p>
+
+        <div class="sime360-features-grid">
+          <div class="sime360-feature-box">
+            <div class="sime360-feature-icon-wrapper"><i class="fas fa-sitemap"></i></div>
+            <h3 class="sime360-feature-heading">Gestión Centralizada</h3>
+            <p class="sime360-feature-text">Visualice usuarios, licencias e informes de uso desde una única plataforma unificada.</p>
+          </div>
+
+          <div class="sime360-feature-box">
+            <div class="sime360-feature-icon-wrapper"><i class="fas fa-chart-pie"></i></div>
+            <h3 class="sime360-feature-heading">Análisis de Datos</h3>
+            <p class="sime360-feature-text">Identifique patrones de uso, optimice la asignación de licencias y audite la actividad.</p>
+          </div>
+
+          <div class="sime360-feature-box">
+            <div class="sime360-feature-icon-wrapper"><i class="fas fa-file-export"></i></div>
+            <h3 class="sime360-feature-heading">Reportes Estratégicos</h3>
+            <p class="sime360-feature-text">Exporte datos consolidados para análisis detallados y toma de decisiones informada.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

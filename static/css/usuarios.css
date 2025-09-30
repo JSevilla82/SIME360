@@ -1,0 +1,561 @@
+/*==============================================================================
+=          ESTILOS DE LOS ENCABEZADOS DE MÓDULOS: FILTROS, OPCIONES Y MÁS     =
+=  Define la estructura visual de los encabezados y disposición general de    =
+=  los contenedores que agrupan filtros, botones y estadísticas.              =
+==============================================================================*/
+
+.contenedorOpciones {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.encabezadoOpciones {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.encabezadoOpciones h2 {
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+}
+
+.encabezadoOpciones p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.filaBotones {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/*------------------ Selected Filtros - Modulo Usuarios -------------------*/
+
+.seccionFiltros,
+.seccionOpciones,
+.seccionEstadisticas {
+  border-radius: 8px;
+  border: 1px solid #a7a7a7;
+  padding: 10px;
+  margin-bottom: 10px;
+  flex: 1;
+  background: #f0f4f7;
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+  .contenedorOpciones {
+    flex-direction: column;
+  }
+
+  .seccionFiltros,
+  .seccionOpciones,
+  .seccionEstadisticas {
+    flex: 1 1 100%;
+  }
+}
+
+.filaFiltros {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1rem;
+  width: 100%;
+}
+
+.filaFiltros .contenedorFiltro:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+}
+
+.filaFiltros .contenedorFiltro:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+  width: 100%;
+}
+
+.filaFiltros .contenedorFiltro:nth-child(3) {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+  width: 100%;
+}
+
+.contenedorFiltro {
+  position: relative;
+  width: 100%;
+}
+
+/* Selects para filtros, Modulos de usuarios y sitios Sharepoint */ 
+.filtroInicioSesion,
+.filtroLicencias,
+.filtroUltimaConexion,
+.filtroUltimaActividad_SP,
+.filtroVisitas_SP,
+.filtroArchivosActivos_SP,
+.filtroArchivosSincronizados_SP {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 2px solid #000000;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+  appearance: none;
+  background-color: #00274d;
+  color: rgb(255, 255, 255);
+  min-width: 160px;
+}
+
+.filtroLicencias optgroup {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
+
+.filtroInicioSesion option,
+.filtroLicencias option,
+.filtroUltimaConexion option,
+.filtroUltimaActividad_SP option,
+.filtroVisitas_SP option,
+.filtroArchivosActivos_SP option,
+.filtroArchivosSincronizados_SP option {
+  font-family: "Poppins", sans-serif;
+  background-color: #b1b1b1;
+  color: #000000;
+  font-size: 14px;
+}
+
+.filtroInicioSesion:hover,
+.filtroLicencias:hover,
+.filtroUltimaConexion:hover,
+.filtroUltimaActividad_SP:hover,
+.filtroVisitas_SP:hover,
+.filtroArchivosActivos_SP:hover,
+.filtroArchivosSincronizados_SP:hover {
+  background-color: #0e3f6a;
+  border-color: #0c3a5f;
+  /* Borde más sutil */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Estilo cuando el select tiene valor */
+.select-con-valor {
+  background-color: #0e3f6a;
+  /* Azul igual que en hover */
+  border-color: #0c3a5f;
+  /* Borde más tenue */
+  box-shadow: 0 0 4px rgba(3, 52, 104, 0.4);
+  /* Sombra más suave */
+}
+
+/* Botón para limpiar (❌) */
+.btn-limpiar {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  display: none;
+}
+
+/* Mostrar botón cuando el select tiene valor */
+.select-con-valor + .btn-limpiar {
+  display: inline;
+}
+
+/*----------------------------BOTONES MODULO USUARIOS------------------------------------------------------*/
+
+.filaBotones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 10px;
+}
+
+.filaBotones .btn-ActualizarUsuarios {
+  grid-column: 1 / 2;
+  /* Coloca el primer botón en la primera columna */
+  grid-row: 1 / 2;
+  /* Coloca el primer botón en la primera fila */
+}
+
+.filaBotones .btn-ExportarExcel {
+  grid-column: 2 / 3;
+  /* Coloca el segundo botón en la segunda columna */
+  grid-row: 1 / 2;
+  /* Coloca el segundo botón en la primera fila */
+}
+
+.filaBotones .btn-DescargarUltimaSesion {
+  grid-column: 1 / 3;
+  /* Coloca el tercer botón abarcando ambas columnas */
+  grid-row: 2 / 3;
+  /* Coloca el tercer botón en la segunda fila */
+}
+
+button {
+  all: unset;
+}
+
+/* Estilo base para los botones de acciones */
+.btn-ActualizarUsuarios,
+.btn-DescargarUltimaSesion,
+.btn-ExportarExcel {
+  background-color: #00274d;
+  /* Fondo azul marino oscuro */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: 600;
+  border: 1px solid rgb(102, 102, 102);
+  color: white;
+  /* Texto blanco */
+  text-align: center;
+  /* Texto centrado */
+  display: inline-flex;
+  justify-content: center;
+  /* Centrar horizontalmente */
+  align-items: center;
+  /* Centrar verticalmente */
+  gap: 10px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  /* Evita que el texto se pase a otra línea */
+}
+
+/* Hover general */
+.btn-ActualizarUsuarios:hover,
+.btn-DescargarUltimaSesion:hover,
+.btn-ExportarExcel:hover {
+  background-color: #003366;
+  /* Azul un poco más claro al hacer hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+  /* Sombra al hacer hover */
+}
+
+/* Íconos dentro del botón (opcional, si usas <i>) */
+.btn-ActualizarUsuarios i,
+.btn-DescargarUltimaSesion i,
+.btn-ExportarExcel i {
+  font-size: 18px;
+}
+
+/* Color propio de fondo detrás del texto (pequeño detalle para que se vea su color original) */
+.btn-ActualizarUsuarios::before {
+  content: "";
+  background-color: #d35400;
+  /* Naranja para Actualizar Usuarios */
+}
+
+.btn-DescargarUltimaSesion::before {
+  content: "";
+  background-color: #1a5276;
+  /* Azul para Descargar Sesión */
+}
+
+.btn-ExportarExcel::before {
+  content: "";
+  background-color: #196f3d;
+  /* Verde para Exportar Excel */
+}
+
+.btn-inactivo {
+  background-color: #b0b0b0 !important;
+  cursor: not-allowergb(184, 184, 184) rtant;
+  box-shadow: none !important;
+  opacity: 0.8;
+}
+
+.custom-btn:hover {
+  opacity: 0.9;
+}
+
+.custom-btn:focus {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.btn-ExportarExcel {
+  background-color: #196f3d;
+  color: white;
+  /* Opcional, por si quieres asegurar buen contraste */
+  border: none;
+  /* Opcional, si quieres un botón más limpio */
+  transition: background-color 0.3s ease;
+  /* Animación suave */
+}
+
+.btn-ExportarExcel:hover {
+  background-color: #1e8449;
+  /* Un verde más claro */
+}
+
+/*Boton copiar del correo Electronico*/
+.icono-copiar-personal {
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+}
+
+.btn-copiar:hover .icono-copiar-personal {
+  transform: scale(1.1);
+}
+
+/*-------------------- Sección estadisticas - Modulo Usuarios Entra ID----------------------*/
+
+.tablaEstadisticas {
+  padding: 2px;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+  border: 1px solid #dddddd;
+  font-family: "Poppins", sans-serif;
+  height: 94px;
+  overflow-y: auto;
+}
+
+.filaEstadistica {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 5px;
+  background-color: rgb(221, 221, 221);
+  border-radius: 3px;
+  border: 1px solid #6d6d6d;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
+}
+
+.tituloEstadistica {
+  font-weight: 600;
+  color: #00274d;
+  font-size: 15px;
+}
+
+.valorEstadistica {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #104f8f;
+}
+
+/*------------------- Rotación del Icono del Boton actualizar en Equipos Informaticos ------------------*/
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotating {
+  animation: spin 0.7s linear infinite;
+}
+
+/* ------------ Expansión de la tabla en el Modulo Usuarios - Desplegable mas detalles --------------------*/
+
+.detalle-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3px;
+}
+
+.detalle-item i,
+.detalle-item strong,
+.detalle-item span {
+  font-size: 13px;
+}
+
+.detalle-item i {
+  margin-right: 7px;
+  color: #00274d;
+}
+
+.detalle-item strong {
+  margin-right: 3px;
+}
+
+.detalle-item span {
+  font-size: 12px;
+}
+
+.expand-all {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  cursor: pointer;
+  color: #016de0;
+  transition: color 0.3s ease;
+}
+
+.expand-all.expanded {
+  color: #dc3545 !important;
+}
+
+td.dt-control {
+  text-align: center !important;
+  vertical-align: middle !important;
+  white-space: nowrap;
+}
+
+td.dt-control i {
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+td.dt-control .fa-plus-circle,
+td.dt-control .fa-minus-circle {
+  margin-left: 3px;
+}
+
+.detalles-usuario {
+  padding: 10px;
+  background: #e0e0e0;
+  border-left: 3px solid #007bff;
+}
+
+.centrar-columna {
+  text-align: center;
+}
+
+/* ---------------- diseño para como se muestran las licencias en la tabla Usuarios Entra ID -------------------------*/
+
+.licencia {
+  padding: 3px 6px;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 1px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.licencia-pago {
+  background-color: #abdab5;
+  border: 1px solid #085219;
+  color: #073b13;
+}
+
+.licencia-gratis {
+  background-color: #b6d5f7;
+  border: 1px solid #0066d3;
+  color: #023061;
+}
+
+.licencia-principal {
+  background-color: #f3ca8c;
+  border: 0.5px solid #c27400;
+  color: rgb(70, 48, 13);
+}
+
+.licencia-no-identificada {
+  background-color: #ffcccc;
+  border: 1px solid #ff0000;
+  color: #800000;
+}
+
+.licencia-sin {
+  background-color: #e0e0e0;
+  border: 1px solid #6c757d;
+  color: #6c757d;
+}
+
+.icono-pago {
+  color: #0d862a;
+  font-weight: bold;
+}
+
+.icono-gratis {
+  color: #bb2b26;
+  font-weight: bold;
+}
+
+.icono-no-identificada {
+  color: #ac0000;
+  font-weight: bold;
+}
+
+.icono-sin {
+  color: #6c757d;
+  font-weight: bold;
+}
+
+
+/*----------------------------BOTONES MODULO USUARIOS------------------------------------------------------*/
+
+
+
+.btn-ExportarInformeXML,
+.btn-ExportarInformeExcel,
+.btn-ExportarInformeExcel_SP {
+  background-color: #00274d;
+  /* Fondo azul marino oscuro */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: 600;
+  border: 1px solid rgb(102, 102, 102);
+  color: white;
+  /* Texto blanco */
+  text-align: center;
+  /* Texto centrado */
+  display: inline-flex;
+  justify-content: center;
+  /* Centrar horizontalmente */
+  align-items: center;
+  /* Centrar verticalmente */
+  gap: 10px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  /* Evita que el texto se pase a otra línea */
+}
+
+.btn-ExportarInformeXML:hover,
+.btn-ExportarInformeExcel:hover,
+.btn-ExportarInformeExcel_SP:hover {
+  background-color: #003366;
+  /* Azul un poco más claro al hacer hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+  /* Sombra al hacer hover */
+}
+
+.btn-ExportarInformeXML i,
+.btn-ExportarInformeExcel i,
+.btn-ExportarInformeExcel_SP i {
+  font-size: 18px;
+}
+
+.custom-btn:hover {
+  opacity: 0.9;
+}
+
+
+.btn-ExportarInformeExcel,
+.btn-ExportarInformeExcel_SP {
+  background-color: #196f3d;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-ExportarInformeExcel:hover,
+.btn-ExportarInformeExcel_SP:hover {
+  background-color: #1e8449;
+}

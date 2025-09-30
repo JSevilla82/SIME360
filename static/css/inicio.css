@@ -1,0 +1,145 @@
+/*=========================== MODULO INICIO ==============================================*/
+
+.sime360-hero-wrapper {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 8px 1px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  position: relative;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+@keyframes subirBajar {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.sime360-logo {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  z-index: 1;
+  animation: subirBajar 2.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 25px rgba(0, 167, 239, 0.5));
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+.orange-text {
+  color: #ff7b00;
+  font-weight: 500;
+}
+
+.sime360-main-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #00274d;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sime360-tagline {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.sime360-main-description {
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.sime360-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1100px;
+  margin: 2rem auto 0;
+}
+
+.sime360-feature-box {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.sime360-feature-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-color: #00274d;
+}
+
+.sime360-feature-icon-wrapper {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #00274d;
+  display: inline-flex;
+  padding: 0.8rem;
+  border-radius: 8px;
+  background: rgba(0, 39, 77, 0.1);
+}
+
+.sime360-feature-heading {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  color: #00274d;
+  font-weight: 600;
+}
+
+.sime360-feature-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .sime360-hero-wrapper {
+    padding: 1.5rem;
+  }
+
+  .sime360-main-title {
+    font-size: 2rem;
+  }
+
+  .sime360-tagline {
+    font-size: 1.1rem;
+  }
+
+  .sime360-features-grid {
+    grid-template-columns: 1fr;
+  }
+}
