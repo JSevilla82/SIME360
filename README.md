@@ -14,7 +14,6 @@ Este repositorio documenta el diseño, la estructura y los módulos que componen
 <img width="1915" height="907" alt="Login, Inicio" src="https://github.com/user-attachments/assets/6c066429-8ccb-456c-aa63-dadd65c0e13f" />
 
 
-
 **Módulo de Inicio**
 
 El Módulo de Inicio actúa como el punto central de acceso a SIME 360, proporcionando una vista general del sistema y del propósito de la plataforma desde el primer ingreso del usuario.
@@ -23,6 +22,7 @@ El Módulo de Inicio actúa como el punto central de acceso a SIME 360, proporci
 
 
 **Módulo de Usuarios**
+
 El Módulo de Usuarios permite la gestión, visualización y análisis de los usuarios asociados al entorno Microsoft 365, ofreciendo una visión clara del estado y comportamiento de las cuentas dentro de la organización.
 
 Desde este módulo es posible visualizar el listado completo de usuarios, organizado desde el más antiguo al más reciente según su fecha de creación, así como consultar la información básica de cada usuario, la licencia asignada y datos relevantes como la fecha de la última conexión. Esta información puede ser descargada para su posterior análisis y seguimiento.
@@ -40,7 +40,7 @@ Este módulo está diseñado para apoyar tareas de control, auditoría y toma de
 <img width="1881" height="778" alt="Usuarios, Reporte" src="https://github.com/user-attachments/assets/5d39f9b5-cfa4-4e56-84e2-b1478006f1a0" />
 
 
-Módulo de Licencias
+**Módulo de Licencias**
 
 El Módulo de Licencias permite visualizar y analizar de forma rápida el estado de las licencias de Microsoft 365 dentro de la organización, facilitando el control y la toma de decisiones relacionadas con su uso y asignación.
 
