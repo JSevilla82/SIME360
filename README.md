@@ -133,7 +133,30 @@ El Módulo de Configuración del Sistema actúa como la base operativa de SIME 3
 <img width="1915" height="912" alt="Configuración 3" src="https://github.com/user-attachments/assets/a537d293-26f0-4561-a660-a40b2f4871a8" />
 <img width="1912" height="911" alt="Configuración 2" src="https://github.com/user-attachments/assets/ff84727b-9019-4007-9c80-491ee1b6af1b" />
 
+_____________________________________________________________________________________________________________________________________________
 
+
+Arquitectura y Estructura del Proyecto
+
+SIME 360 está desarrollado como una aplicación web modular, basada en el framework Flask (Python), siguiendo una estructura clara que separa responsabilidades entre backend, frontend, configuración y recursos estáticos, lo que facilita la mantenibilidad y la escalabilidad del proyecto.
+
+El backend está construido sobre Flask y se encarga de la lógica de negocio, la autenticación, el control de accesos y la exposición de rutas y servicios. La aplicación principal se inicializa desde app.py, donde se configuran los componentes base del sistema, incluyendo la carga de configuración, la inicialización de la base de datos, la protección CSRF y el registro de blueprints para mantener una arquitectura ordenada y desacoplada.
+
+La aplicación utiliza blueprints para organizar funcionalidades específicas, como la autenticación con Microsoft mediante Azure Active Directory, permitiendo integrar de forma segura el acceso corporativo. Asimismo, se implementan mecanismos de control de permisos para restringir el acceso a los módulos según el usuario autenticado.
+
+La capa de datos se gestiona mediante SQLAlchemy, permitiendo interactuar con la base de datos de forma estructurada y segura. Los modelos representan entidades clave del sistema, como usuarios y configuraciones necesarias para el funcionamiento de la plataforma.
+
+El frontend está compuesto por plantillas HTML organizadas en el directorio templates, utilizando un enfoque modular donde cada funcionalidad principal del sistema cuenta con su propio archivo HTML dentro del directorio modulos_index. Esto permite cargar dinámicamente los módulos sin recargar completamente la aplicación, mejorando la experiencia de usuario.
+
+Los recursos estáticos se encuentran organizados en el directorio static, separando hojas de estilo CSS, scripts JavaScript e imágenes. Cada módulo cuenta con sus propios archivos JavaScript y CSS, lo que favorece la modularidad y evita dependencias innecesarias entre componentes.
+
+La lógica del lado del cliente se apoya en JavaScript, encargado de la carga dinámica de módulos, el consumo de datos, la interacción con el usuario y la exportación de información, como los reportes en Excel.
+
+Finalmente, el proyecto incluye archivos de configuración y soporte como config.py, requirements.txt, variables de entorno (.env) y scripts de ejecución, lo que permite una instalación controlada y una correcta gestión de dependencias.
+
+En conjunto, esta estructura permite que SIME 360 sea una solución organizada, flexible y preparada para evolucionar, facilitando la incorporación de nuevos módulos, mejoras funcionales y adaptaciones a distintos entornos organizacionales.
+
+<img width="1312" height="975" alt="Estructura del Desarrolloo" src="https://github.com/user-attachments/assets/ceb54ce9-ceb4-48ad-b34e-6af90aa8111e" />
 
 
 
