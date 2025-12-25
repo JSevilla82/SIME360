@@ -1,8 +1,7 @@
 
 **Introducción**
 
-SIME 360 es una plataforma desarrollada como iniciativa personal de Jairo Sevilla, concebida con el objetivo de optimizar, centralizar y analizar el uso de Microsoft 365 dentro de entornos organizacionales, proporcionando una visión integral (360°) del consumo, la actividad y la gestión de los servicios digitales.
-
+SIME 360 es una plataforma desarrollada como iniciativa personal de Jairo Sevilla, concebida con el objetivo de optimizar, centralizar y analizar el uso de Microsoft 365 dentro de entornos organizacionales.
 El proyecto fue diseñado, desarrollado e iterado de manera continua entre enero de 2025 y octubre de 2025, como resultado de la identificación de una necesidad recurrente en las organizaciones: la ausencia de una herramienta unificada que permita visualizar de forma clara, estructurada y accionable la información relacionada con usuarios, licencias, servicios y niveles de adopción de Microsoft 365.
 
 SIME 360 integra múltiples módulos funcionales que permiten monitorear el uso de servicios como Outlook, OneDrive, Teams y SharePoint, analizar el consumo y la clasificación de licencias, centralizar la información de usuarios y sitios, y facilitar la toma de decisiones mediante reportes, filtros y métricas consolidadas.
