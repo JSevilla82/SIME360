@@ -22,8 +22,8 @@ El Módulo de Inicio actúa como el punto central de acceso a SIME 360, proporci
 <img width="1919" height="914" alt="Inicio" src="https://github.com/user-attachments/assets/a4e0b3c3-14f0-4f26-b231-0b77cb9bc381" />
 
 
-Módulo de Usuarios
-
+**Módulo de Usuarios
+**
 El Módulo de Usuarios permite la gestión, visualización y análisis de los usuarios asociados al entorno Microsoft 365, ofreciendo una visión clara del estado y comportamiento de las cuentas dentro de la organización.
 
 Desde este módulo es posible visualizar el listado completo de usuarios, organizado desde el más antiguo al más reciente según su fecha de creación, así como consultar la información básica de cada usuario, la licencia asignada y datos relevantes como la fecha de la última conexión. Esta información puede ser descargada para su posterior análisis y seguimiento.
