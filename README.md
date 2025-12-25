@@ -156,7 +156,8 @@ Finalmente, el proyecto incluye archivos de configuración y soporte como config
 
 En conjunto, esta estructura permite que SIME 360 sea una solución organizada, flexible y preparada para evolucionar, facilitando la incorporación de nuevos módulos, mejoras funcionales y adaptaciones a distintos entornos organizacionales.
 
-<img width="1622" height="976" alt="image" src="https://github.com/user-attachments/assets/04594a8d-6b21-4a79-a003-e8f99ff1f93f" />
+<img width="1614" height="978" alt="image" src="https://github.com/user-attachments/assets/5d55b832-fe6d-44b4-945b-8dc6d86dd76b" />
+
 
 
 
