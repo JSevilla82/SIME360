@@ -136,7 +136,7 @@ El Módulo de Configuración del Sistema actúa como la base operativa de SIME 3
 _____________________________________________________________________________________________________________________________________________
 
 
-Arquitectura y Estructura del Proyecto
+**Arquitectura y Estructura del Proyecto**
 
 SIME 360 está desarrollado como una aplicación web modular, basada en el framework Flask (Python), siguiendo una estructura clara que separa responsabilidades entre backend, frontend, configuración y recursos estáticos, lo que facilita la mantenibilidad y la escalabilidad del proyecto.
 
