@@ -130,8 +130,8 @@ Valor del módulo
 El Módulo de Configuración del Sistema actúa como la base operativa de SIME 360, ya que centraliza la gestión de licencias y el control de accesos, asegurando coherencia en los datos, flexibilidad de configuración y un uso seguro y controlado de la herramienta dentro de la organización.
 
 <img width="1907" height="911" alt="Configuración 1" src="https://github.com/user-attachments/assets/c7237abe-c898-42ec-83c8-00fbf244d0d3" />
-<img width="1912" height="911" alt="Configuración 2" src="https://github.com/user-attachments/assets/ff84727b-9019-4007-9c80-491ee1b6af1b" />
 <img width="1915" height="912" alt="Configuración 3" src="https://github.com/user-attachments/assets/a537d293-26f0-4561-a660-a40b2f4871a8" />
+<img width="1912" height="911" alt="Configuración 2" src="https://github.com/user-attachments/assets/ff84727b-9019-4007-9c80-491ee1b6af1b" />
 
 
 
