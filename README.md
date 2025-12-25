@@ -1,24 +1,18 @@
+
 **Introducción**
 
 SIME 360 es una plataforma desarrollada como iniciativa personal de Jairo Sevilla, concebida con el objetivo de optimizar, centralizar y analizar el uso de Microsoft 365 dentro de entornos organizacionales, proporcionando una visión integral (360°) del consumo, la actividad y la gestión de los servicios digitales.
 
-El proyecto fue diseñado, desarrollado e iterado de manera continua entre enero de 2025 y octubre de 2025, como resultado de la identificación de una necesidad recurrente en las organizaciones: la falta de una herramienta unificada que permita visualizar de forma clara, estructurada y accionable la información relacionada con usuarios, licencias, servicios y adopción de Microsoft 365.
+El proyecto fue diseñado, desarrollado e iterado de manera continua entre enero de 2025 y octubre de 2025, como resultado de la identificación de una necesidad recurrente en las organizaciones: la ausencia de una herramienta unificada que permita visualizar de forma clara, estructurada y accionable la información relacionada con usuarios, licencias, servicios y niveles de adopción de Microsoft 365.
 
-SIME 360 integra múltiples módulos funcionales que permiten:
+SIME 360 integra múltiples módulos funcionales que permiten monitorear el uso de servicios como Outlook, OneDrive, Teams y SharePoint, analizar el consumo y la clasificación de licencias, centralizar la información de usuarios y sitios, y facilitar la toma de decisiones mediante reportes, filtros y métricas consolidadas.
 
-Monitorear el uso de servicios como Outlook, OneDrive, Teams y SharePoint.
-
-Analizar el consumo de licencias y su clasificación.
-
-Centralizar información de usuarios y sitios.
-
-Facilitar la toma de decisiones mediante reportes, filtros y métricas consolidadas.
-
-La plataforma fue construida con una arquitectura modular, orientada a la escalabilidad y la mantenibilidad, utilizando tecnologías web que permiten una experiencia fluida y dinámica, así como mecanismos de autenticación tanto local como corporativa (Azure AD), adaptándose a distintos contextos organizacionales.
+La plataforma fue construida con una arquitectura modular, orientada a la escalabilidad y la mantenibilidad, utilizando tecnologías web que ofrecen una experiencia fluida y dinámica. Asimismo, incorpora mecanismos de autenticación tanto local como corporativa mediante Azure Active Directory, lo que le permite adaptarse a distintos contextos organizacionales y modelos de seguridad.
 
 Este repositorio documenta el diseño, la estructura y los módulos que componen SIME 360, sirviendo como referencia técnica y funcional del proyecto.
 
 <img width="1915" height="907" alt="Login, Inicio" src="https://github.com/user-attachments/assets/6c066429-8ccb-456c-aa63-dadd65c0e13f" />
+
 
 
 **Módulo de Inicio**
@@ -28,29 +22,17 @@ El Módulo de Inicio actúa como el punto central de acceso a SIME 360, proporci
 <img width="1919" height="914" alt="Inicio" src="https://github.com/user-attachments/assets/a4e0b3c3-14f0-4f26-b231-0b77cb9bc381" />
 
 
-**Módulo de Usuarios**
+Módulo de Usuarios
 
 El Módulo de Usuarios permite la gestión, visualización y análisis de los usuarios asociados al entorno Microsoft 365, ofreciendo una visión clara del estado y comportamiento de las cuentas dentro de la organización.
 
-Desde este módulo es posible:
+Desde este módulo es posible visualizar el listado completo de usuarios, organizado desde el más antiguo al más reciente según su fecha de creación, así como consultar la información básica de cada usuario, la licencia asignada y datos relevantes como la fecha de la última conexión. Esta información puede ser descargada para su posterior análisis y seguimiento.
 
-Visualizar el listado completo de usuarios, organizado desde el más antiguo al más reciente según su fecha de creación.
+El módulo permite aplicar distintos filtros que facilitan el análisis segmentado, incluyendo el tipo de licencia asignada, el estado de inicio de sesión y la identificación de usuarios con el inicio de sesión bloqueado. Adicionalmente, toda la información de usuarios puede ser exportada a archivo Excel, lo que facilita el análisis externo, la elaboración de reportes y procesos de auditoría.
 
-Consultar la información básica del usuario, la licencia asignada y datos relevantes como la fecha de la última conexión de cada usuario, así como descargar esta información para su posterior análisis.
+Asimismo, el módulo presenta estadísticas rápidas que permiten evaluar de forma inmediata el estado general de los usuarios, las licencias asignadas y el nivel de actividad dentro del entorno Microsoft 365.
 
-Aplicar filtros, incluyendo:
-
-Tipo de licencia asignada.
-
-Estado de inicio de sesión.
-
-Usuarios con inicio de sesión bloqueado.
-
-Exportar la información de usuarios a archivo Excel, facilitando el análisis externo y la elaboración de reportes.
-
-Acceder a estadísticas rápidas que permiten evaluar de forma inmediata el estado general de los usuarios, licencias y actividad.
-
-Este módulo está diseñado para apoyar tareas de control, auditoría y toma de decisiones, proporcionando información accionable de manera rápida y estructurada.
+Este módulo está diseñado para apoyar tareas de control, auditoría y toma de decisiones, proporcionando información clara, estructurada y accionable de manera ágil.
 
 
 <img width="1919" height="912" alt="Usuarios 1" src="https://github.com/user-attachments/assets/76b9f060-cb4e-487a-ab10-f0af186e6771" />
@@ -59,29 +41,105 @@ Este módulo está diseñado para apoyar tareas de control, auditoría y toma de
 <img width="1881" height="778" alt="Usuarios, Reporte" src="https://github.com/user-attachments/assets/5d39f9b5-cfa4-4e56-84e2-b1478006f1a0" />
 
 
-**Módulo de Licencias**
+Módulo de Licencias
 
 El Módulo de Licencias permite visualizar y analizar de forma rápida el estado de las licencias de Microsoft 365 dentro de la organización, facilitando el control y la toma de decisiones relacionadas con su uso y asignación.
 
-En este módulo, las licencias se presentan en tres secciones principales: Licencias de pago, Licencias gratuitas, Licencias sin clasificar.
+En este módulo, las licencias se presentan en tres secciones principales: licencias de pago, licencias gratuitas y licencias sin clasificar. La clasificación de las licencias depende de la configuración definida previamente en el Módulo de Configuración, lo que permite adaptar el sistema a las necesidades específicas de cada organización y garantizar una correcta interpretación de la información.
 
-La clasificación de las licencias depende de la configuración definida previamente en el Módulo de Configuración, lo que permite adaptar el sistema a las necesidades de cada organización.
+Desde este módulo, los usuarios pueden conocer de manera clara cuántas licencias han sido compradas, identificar cuántas se encuentran asignadas a usuarios, visualizar licencias vencidas o inactivas y determinar cuántas licencias están disponibles para asignación. Toda esta información se presenta de forma rápida, concisa y centralizada, permitiendo una visión general inmediata del estado del licenciamiento.
 
-Desde este módulo, los usuarios pueden:
+Este módulo proporciona una vista estratégica del licenciamiento, ayudando a optimizar costos, evitar sobreasignaciones y detectar oportunidades de mejora en el uso de los recursos de Microsoft 365 dentro de la organización.
 
-Conocer de manera clara cuántas licencias han sido compradas.
-
-Identificar cuántas licencias se encuentran asignadas a usuarios.
-
-Visualizar licencias vencidas o inactivas.
-
-Determinar cuántas licencias están disponibles para asignación.
-
-Obtener una visión general del estado de licenciamiento de forma rápida, concisa y centralizada.
-
-Este módulo proporciona una vista estratégica del licenciamiento, ayudando a optimizar costos, evitar sobreasignaciones y detectar oportunidades de mejora en el uso de los recursos.
 
 <img width="1916" height="912" alt="Licencias" src="https://github.com/user-attachments/assets/c59916d4-cf30-429d-96da-7e3737719c7a" />
+
+
+**Módulo de Informes de Uso**
+
+El Módulo de Informes de Uso es uno de los componentes más completos y estratégicos de SIME 360, ya que permite analizar de forma detallada cómo los usuarios de la organización utilizan las principales herramientas de Microsoft 365.
+
+Desde este módulo se puede visualizar y analizar el uso de Outlook, OneDrive, Teams y SharePoint, consolidando la información de actividad y consumo en una sola vista centralizada.
+
+El módulo permite consultar el almacenamiento utilizado en Outlook y OneDrive por cada usuario, identificar la última actividad o conexión en cada uno de los servicios y analizar métricas clave asociadas al uso diario. Entre estas métricas se incluyen los correos recibidos y enviados en Outlook, los archivos sincronizados, activos y totales en OneDrive, las llamadas, reuniones y mensajes privados en Teams, así como los archivos vistos, archivos sincronizados y páginas visitadas en SharePoint.
+
+Adicionalmente, el sistema permite acceder a un detalle individual por usuario, donde se consolida la información de uso de todos los servicios en una sola vista, facilitando el análisis puntual del comportamiento y nivel de adopción de cada cuenta.
+
+Análisis y optimización de licencias
+
+La información presentada en este módulo permite detectar usuarios con baja o nula actividad, que no están aprovechando completamente su licencia asignada, e identificar oportunidades para optimizar el licenciamiento. Por ejemplo, usuarios que reciben pocos correos o utilizan poco almacenamiento pueden migrarse a licencias con menores capacidades, mientras que usuarios con alto consumo de almacenamiento o alta actividad pueden requerir licencias con mayores características.
+
+Este análisis apoya decisiones relacionadas con la reducción de costos, la reasignación de licencias y la mejora en la adopción de las herramientas de Microsoft 365 dentro de la organización.
+
+Filtros, periodos y exportación
+
+El módulo permite analizar la información en distintos periodos de tiempo, incluyendo los últimos 30, 60, 90 y 180 días, lo que facilita el seguimiento de tendencias y cambios en el comportamiento de los usuarios. Adicionalmente, toda la información puede ser exportada a Excel, facilitando el análisis externo, la generación de reportes y el cruce de datos para auditorías o revisiones más profundas.
+
+Este módulo ofrece una visión clara, accionable y basada en datos del nivel de adopción y uso de Microsoft 365 dentro de la organización.
+
+
+<img width="1917" height="913" alt="Informes de Uso, 1" src="https://github.com/user-attachments/assets/e585ae07-d1c8-450f-bd47-c09011489e04" />
+<img width="1919" height="911" alt="Informes de Uso, 3" src="https://github.com/user-attachments/assets/d9b50da3-d128-4d18-99ad-a2f012039680" />
+<img width="1919" height="910" alt="Informes de Uso, 2" src="https://github.com/user-attachments/assets/92c703bb-4953-450a-98f1-adae2ed9249f" />
+<img width="1899" height="786" alt="Informes Uso, Reporte" src="https://github.com/user-attachments/assets/fe5e5f0f-65e8-4848-9949-cd75fae040c5" />
+
+
+**Módulo de Sitios de SharePoint**
+
+El Módulo de Sitios de SharePoint permite visualizar y analizar el estado, el nivel de uso y el consumo de almacenamiento de los sitios de SharePoint dentro de la organización, facilitando el control, la supervisión y la optimización del espacio asignado.
+
+Desde este módulo es posible visualizar el listado completo de sitios de SharePoint, ordenados por fecha de creación, consultar la última actividad registrada en cada sitio y analizar métricas clave como la cantidad total de archivos, los archivos activos, el número de visitas, el almacenamiento utilizado en gigabytes frente al almacenamiento asignado y el porcentaje de uso del espacio disponible.
+
+La información presentada permite identificar de manera clara sitios con alto consumo de almacenamiento, sitios con baja o nula actividad, así como aquellos que presentan un uso sobredimensionado o subutilizado del espacio asignado. Adicionalmente, el módulo permite acceder directamente a cada sitio mediante su URL, lo que facilita la validación, revisión manual o gestión directa del contenido.
+
+Análisis y optimización
+
+Los datos consolidados en este módulo permiten detectar sitios inactivos o con poca actividad que continúan consumiendo almacenamiento, identificar oportunidades para optimizar el espacio asignado ajustando las cuotas según el uso real y apoyar la toma de decisiones relacionadas con el archivado de sitios antiguos, la limpieza de información obsoleta y la reorganización del almacenamiento en SharePoint. Asimismo, se obtiene una visión general del consumo total de SharePoint dentro de la organización.
+
+Filtros y exportación
+
+El módulo incluye filtros que permiten segmentar la información por criterios como la última actividad, el número de visitas y los archivos activos, facilitando el análisis focalizado de los sitios. Adicionalmente, toda la información puede ser exportada a Excel, lo que permite realizar análisis detallados, auditorías y la generación de reportes externos.
+
+Este módulo proporciona una visión clara, estructurada y accionable del estado de los sitios de SharePoint, ayudando a mantener un entorno ordenado, eficiente y alineado con las necesidades reales del negocio.
+
+<img width="1919" height="917" alt="Sitios de Sharepoint," src="https://github.com/user-attachments/assets/f66b9b5c-5008-4e8f-8762-bb05128caa90" />
+<img width="1293" height="644" alt="Sitios de Sharepoint, Informe" src="https://github.com/user-attachments/assets/120cc958-0ca0-46e2-b879-9154acdf1f4f" />
+
+
+**Módulo de Configuración del Sistema**
+
+El Módulo de Configuración del Sistema es el componente encargado de definir y administrar las reglas base de funcionamiento de SIME 360, asegurando que la información presentada en los demás módulos sea consistente, confiable y alineada con la configuración real del entorno Microsoft 365 de la organización.
+
+Este módulo se divide en dos secciones principales: Configuración de Licencias y Acceso a la Herramienta, las cuales impactan directamente en el comportamiento general del sistema.
+
+Configuración de Licencias
+
+En esta sección se administran las licencias de Microsoft 365 que el sistema utiliza para clasificar y mostrar la información en los módulos de Usuarios, Licencias e Informes de Uso. Desde aquí se puede visualizar el listado completo de licencias detectadas en el tenant y configurar su información clave, incluyendo el identificador técnico (SKU), el nombre técnico, el nombre comercial, el tipo de licencia y el tipo de pago.
+
+Las licencias pueden clasificarse como principales, correspondientes a las licencias base utilizadas por los usuarios para servicios como Outlook, OneDrive, Teams o SharePoint, o como secundarias, asociadas a productos o servicios específicos como Power BI, Project, Visio, Power Apps u otras soluciones adicionales. Asimismo, es posible definir si una licencia es de pago o gratuita, lo cual permite al sistema diferenciar correctamente el estado del licenciamiento.
+
+Esta configuración es fundamental, ya que influye directamente en la forma en que SIME 360 interpreta, agrupa y presenta la información relacionada con el uso de licencias, facilitando análisis de consumo, optimización de recursos y control de costos.
+
+Acceso a la Herramienta
+
+La sección de Acceso a la Herramienta permite gestionar qué usuarios pueden ingresar a SIME 360 utilizando su cuenta corporativa de Microsoft. Desde este espacio se pueden buscar usuarios por su correo electrónico corporativo y visualizar información relevante como nombre completo, correo electrónico, cargo, oficina, estado de la cuenta e información del líder, antes de autorizar o restringir el acceso al sistema.
+
+El módulo permite autorizar, deshabilitar o revocar accesos de manera controlada, así como consultar un histórico de accesos donde se registra la fecha de autorización, el usuario autorizado y el estado del acceso. Esta funcionalidad garantiza que únicamente los usuarios previamente autorizados puedan acceder a la plataforma, fortaleciendo los controles de seguridad y la administración de permisos.
+
+Valor del módulo
+
+El Módulo de Configuración del Sistema actúa como la base operativa de SIME 360, ya que centraliza la gestión de licencias y el control de accesos, asegurando coherencia en los datos, flexibilidad de configuración y un uso seguro y controlado de la herramienta dentro de la organización.
+
+<img width="1907" height="911" alt="Configuración 1" src="https://github.com/user-attachments/assets/c7237abe-c898-42ec-83c8-00fbf244d0d3" />
+<img width="1912" height="911" alt="Configuración 2" src="https://github.com/user-attachments/assets/ff84727b-9019-4007-9c80-491ee1b6af1b" />
+<img width="1915" height="912" alt="Configuración 3" src="https://github.com/user-attachments/assets/a537d293-26f0-4561-a660-a40b2f4871a8" />
+
+
+
+
+
+
+
 
 
 
