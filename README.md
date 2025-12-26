@@ -16,13 +16,16 @@ La plataforma fue construida con una arquitectura modular, orientada a la escala
 Este repositorio documenta el diseño, la estructura y los módulos que componen SIME 360, sirviendo como referencia técnica y funcional del proyecto.
 
 <img width="1915" height="907" alt="Login, Inicio" src="https://github.com/user-attachments/assets/6c066429-8ccb-456c-aa63-dadd65c0e13f" />
+<img width="1920" height="900" alt="Login, Iniciando" src="https://github.com/user-attachments/assets/55225b51-c497-4984-831f-b8f4dda17d51" />
+
+
 
 
 **Módulo de Inicio**
 
 El Módulo de Inicio actúa como el punto central de acceso a SIME 360, proporcionando una vista general del sistema y del propósito de la plataforma desde el primer ingreso del usuario.
 
-<img width="1919" height="914" alt="Inicio" src="https://github.com/user-attachments/assets/a4e0b3c3-14f0-4f26-b231-0b77cb9bc381" />
+<img width="1917" height="912" alt="Inicio, Menú" src="https://github.com/user-attachments/assets/2787c119-3ec9-4ab4-a763-a9460526d38b" />
 
 
 **Módulo de Usuarios**
