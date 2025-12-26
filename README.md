@@ -1,4 +1,4 @@
-** SIME360 – Sistema de Información Microsoft Empresarial**
+** SIME360 – Sistema de Información Microsoft Empresarial **
 
 🔒 Confidencialidad y propiedad intelectual
 Este proyecto fue desarrollado de manera independiente para uso empresarial. Por razones de protección de la solución, parte del código ha sido ofuscado.
