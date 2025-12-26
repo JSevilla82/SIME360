@@ -44,7 +44,8 @@ Este módulo está diseñado para apoyar tareas de control, auditoría y toma de
 <img width="1919" height="912" alt="Usuarios 1" src="https://github.com/user-attachments/assets/76b9f060-cb4e-487a-ab10-f0af186e6771" />
 <img width="1918" height="914" alt="Usuarios 2" src="https://github.com/user-attachments/assets/7c23051f-bd00-429e-a500-811fc61a18d7" />
 <img width="1918" height="911" alt="Usuarios 3" src="https://github.com/user-attachments/assets/0efbef1a-d744-4f1e-bc08-7b9eb516391c" />
-<img width="1881" height="778" alt="Usuarios, Reporte" src="https://github.com/user-attachments/assets/5d39f9b5-cfa4-4e56-84e2-b1478006f1a0" />
+<img width="1916" height="892" alt="image" src="https://github.com/user-attachments/assets/2b6b32d9-5cd5-47c5-b3d6-fa4e0ccf2678" />
+
 
 
 **Módulo de Licencias**
@@ -87,7 +88,8 @@ Este módulo ofrece una visión clara, accionable y basada en datos del nivel de
 <img width="1917" height="913" alt="Informes de Uso, 1" src="https://github.com/user-attachments/assets/e585ae07-d1c8-450f-bd47-c09011489e04" />
 <img width="1919" height="911" alt="Informes de Uso, 3" src="https://github.com/user-attachments/assets/d9b50da3-d128-4d18-99ad-a2f012039680" />
 <img width="1919" height="910" alt="Informes de Uso, 2" src="https://github.com/user-attachments/assets/92c703bb-4953-450a-98f1-adae2ed9249f" />
-<img width="1899" height="786" alt="Informes Uso, Reporte" src="https://github.com/user-attachments/assets/fe5e5f0f-65e8-4848-9949-cd75fae040c5" />
+<img width="1919" height="841" alt="image" src="https://github.com/user-attachments/assets/43091036-5637-4c3d-a5a9-c040d8bb6481" />
+
 
 
 **Módulo de Sitios de SharePoint**
@@ -109,7 +111,7 @@ El módulo incluye filtros que permiten segmentar la información por criterios 
 Este módulo proporciona una visión clara, estructurada y accionable del estado de los sitios de SharePoint, ayudando a mantener un entorno ordenado, eficiente y alineado con las necesidades reales del negocio.
 
 <img width="1919" height="917" alt="Sitios de Sharepoint," src="https://github.com/user-attachments/assets/f66b9b5c-5008-4e8f-8762-bb05128caa90" />
-<img width="1293" height="644" alt="Sitios de Sharepoint, Informe" src="https://github.com/user-attachments/assets/120cc958-0ca0-46e2-b879-9154acdf1f4f" />
+<img width="1919" height="914" alt="image" src="https://github.com/user-attachments/assets/47ab47bc-f51b-4e43-9e42-cc83fceb90f2" />
 
 
 **Módulo de Configuración del Sistema**
