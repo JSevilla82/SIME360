@@ -140,7 +140,8 @@ El Módulo de Configuración del Sistema actúa como la base operativa de SIME 3
 
 <img width="1907" height="911" alt="Configuración 1" src="https://github.com/user-attachments/assets/c7237abe-c898-42ec-83c8-00fbf244d0d3" />
 <img width="1915" height="912" alt="Configuración 3" src="https://github.com/user-attachments/assets/a537d293-26f0-4561-a660-a40b2f4871a8" />
-<img width="1912" height="911" alt="Configuración 2" src="https://github.com/user-attachments/assets/ff84727b-9019-4007-9c80-491ee1b6af1b" />
+<img width="1918" height="854" alt="image" src="https://github.com/user-attachments/assets/9cebc087-0525-4203-9c2d-271f5ab6c9ff" />
+
 
 _____________________________________________________________________________________________________________________________________________
 
@@ -201,14 +202,14 @@ Se normalizó el manejo de errores:
 - Los errores internos se registran en logs (`logs/sime360.log`).
 - Las respuestas al cliente (especialmente `/api/*`) entregan mensajes genéricos sin exponer trazas ni detalles de excepción.
 
----
-
 En conjunto, estas medidas permiten que SIME 360 funcione de forma segura en red, mitigando riesgos como **CSRF**, **XSS**, **abuso de endpoints**, **acceso indebido por URL**, **clickjacking**, **filtración de errores internos** y **sesiones abandonadas**, manteniendo una experiencia de usuario consistente y controlada.
 
 
 <img width="1911" height="912" alt="image" src="https://github.com/user-attachments/assets/18a6ccd1-b3ff-476f-ac7d-d7df05720fd5" />
 <img width="1352" height="800" alt="image" src="https://github.com/user-attachments/assets/6956d4f8-3b38-424f-b517-534c40721e08" />
 <img width="1354" height="797" alt="image" src="https://github.com/user-attachments/assets/688266b0-c56e-42cf-907b-933c154374bd" />
+
+---
 
 **Arquitectura y Estructura del Proyecto**
 
