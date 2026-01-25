@@ -144,6 +144,71 @@ El Módulo de Configuración del Sistema actúa como la base operativa de SIME 3
 
 _____________________________________________________________________________________________________________________________________________
 
+## **Seguridad Implementada en la Aplicación (SIME 360)**
+
+SIME 360 incorpora controles de seguridad en **backend** y **frontend** orientados a proteger la autenticación, la sesión del usuario, la exposición de datos y la integridad de las solicitudes. La solución aplica prácticas recomendadas para aplicaciones web internas/expuestas en red, combinando validaciones del lado del servidor con endurecimiento del cliente.
+
+### **1. Autenticación y control de acceso**
+La aplicación soporta autenticación corporativa mediante **Microsoft Entra ID (Azure AD)** y autenticación **local**, aplicando validación de sesión y control de permisos por módulo:
+
+- Validación de sesión activa para acceder a vistas, módulos y endpoints.
+- Control de permisos por usuario (roles por módulo) almacenados en base de datos.
+- Restricción de acceso a módulos mediante permisos del tipo `acceso:<modulo>`, evitando accesos manuales por URL.
+- Endpoints administrativos protegidos (configuración y gestión de accesos) para permitir cambios solo a usuarios autorizados.
+
+### **2. Protección contra CSRF**
+Se implementó **CSRFProtect (Flask-WTF)** para proteger solicitudes sensibles (POST/PUT/DELETE).
+
+- En endpoints `/api/*`, los errores CSRF se gestionan con respuesta JSON controlada (sin exponer detalles internos).
+- El frontend detecta expiración/CSRF inválido y notifica al usuario, redirigiendo a cierre de sesión cuando aplica.
+
+### **3. Gestión de sesión e inactividad**
+Para evitar sesiones prolongadas o abandonadas:
+
+- Cierre de sesión por **inactividad** configurable desde `.env` (`IDLE_TIMEOUT_MINUTES`).
+- Expiración máxima de sesión configurable desde `.env` (`SESSION_LIFETIME_MINUTES`).
+- Aviso previo con modal y contador (`SESSION_WARNING_SECONDS`) y opción de “Extender sesión”.
+- Renovación controlada de sesión y CSRF mediante endpoint seguro (`/api/session/ping`).
+
+### **4. Endurecimiento de cabeceras HTTP (Hardening)**
+Se añadieron cabeceras para mitigar ataques web comunes:
+
+- `Content-Security-Policy (CSP)` para limitar scripts y conexiones externas.
+- `X-Frame-Options: DENY` (anti clickjacking).
+- `X-Content-Type-Options: nosniff`.
+- `Referrer-Policy` y `Permissions-Policy`.
+- HSTS en producción para reforzar HTTPS.
+
+### **5. Mitigación de XSS en carga de módulos y render dinámico**
+La aplicación utiliza carga dinámica de módulos HTML con medidas de protección:
+
+- El loader de módulos elimina etiquetas `<script>` presentes en los HTML cargados.
+- Se eliminan atributos inline `on*` (onclick, onload, etc.).
+- Se redujo el uso de `innerHTML` con datos no confiables en módulos críticos (Usuarios / Sitios / Informes).
+- Se implementaron funciones de escape y validación:
+  - `escapeHTML` / `escapeAttr` para evitar inyección HTML.
+  - `sanitizeExternalUrl` para bloquear URLs peligrosas (ej: `javascript:`).
+
+### **6. Validaciones para rutas dinámicas (anti path traversal)**
+La carga de módulos (`/modulos_index/<modulo>.html`) aplica:
+
+- Validación estricta del nombre del módulo (regex).
+- Verificación contra lista blanca real de templates existentes.
+
+### **7. Manejo profesional de errores**
+Se normalizó el manejo de errores:
+
+- Los errores internos se registran en logs (`logs/sime360.log`).
+- Las respuestas al cliente (especialmente `/api/*`) entregan mensajes genéricos sin exponer trazas ni detalles de excepción.
+
+---
+
+En conjunto, estas medidas permiten que SIME 360 funcione de forma segura en red, mitigando riesgos como **CSRF**, **XSS**, **abuso de endpoints**, **acceso indebido por URL**, **clickjacking**, **filtración de errores internos** y **sesiones abandonadas**, manteniendo una experiencia de usuario consistente y controlada.
+
+
+<img width="1911" height="912" alt="image" src="https://github.com/user-attachments/assets/18a6ccd1-b3ff-476f-ac7d-d7df05720fd5" />
+<img width="1352" height="800" alt="image" src="https://github.com/user-attachments/assets/6956d4f8-3b38-424f-b517-534c40721e08" />
+<img width="1354" height="797" alt="image" src="https://github.com/user-attachments/assets/688266b0-c56e-42cf-907b-933c154374bd" />
 
 **Arquitectura y Estructura del Proyecto**
 
